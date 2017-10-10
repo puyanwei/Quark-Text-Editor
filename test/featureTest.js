@@ -1,6 +1,6 @@
 //This is what we need to include for mocha to run its tests
-var Application = require("spectron").Application;
-var assert = require("assert");
+const Application = require("spectron").Application;
+const assert = require("assert");
 
 describe("application launch", function() {
   this.timeout(10000);
@@ -18,4 +18,11 @@ describe("application launch", function() {
       return this.app.stop();
     }
   });
+
+  it('shows an inital window', function() {
+    return this.app.client.getWindowCount().then(function(count){
+      assert.equal(count,1)
+    })
+  });
+  
 });
