@@ -20,10 +20,14 @@ describe("application launch", function() {
   });
 
   // opening with devtools, adds a second window
-  it('shows an inital window', function() {
-    return this.app.client.getWindowCount().then(function(count){
-      assert.equal(count,1)
-    })
-  })
-
+//   it('shows an inital window', function() {
+//     return this.app.client.getWindowCount().then(function(count){
+//       assert.equal(count,1)
+//     })
+//   })
+//
+//   it('has a file menu', function (){
+//
+//   })
+//
 });
