@@ -1,6 +1,9 @@
 //This is what we need to include for mocha to run its tests
-const Application = require("spectron").Application;
-const assert = require("assert");
+const electron = require("electron");
+var expect = require("chai").expect;
+
+var Application = require("spectron").Application;
+var assert = require("assert");
 
 describe("application launch", function() {
   this.timeout(10000);
@@ -19,10 +22,24 @@ describe("application launch", function() {
     }
   });
 
-  it('shows an inital window', function() {
-    return this.app.client.getWindowCount().then(function(count){
-      assert.equal(count,1)
-    })
+  it("a window opens", function() {
+    return this.app.client.getWindowCount().then(function(count) {
+      assert.equal(count, 1);
+    });
   });
-  
+
+  it("title says Text Editor", function() {
+    return this.app.client
+      .waitUntilWindowLoaded()
+      .getTitle()
+      .then(text => expect(text).to.eq("Text Editor"));
+  });
+
+  it("finds the text on the page", function() {
+    return this.app.client
+      .waitUntilWindowLoaded()
+      .waitForVisible("h2")
+      .getText("h2")
+      .then(text => expect(text).to.eq("HELLO WORLD"));
+  });
 });
