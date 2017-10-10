@@ -18,14 +18,14 @@ describe("application launch", function() {
       return this.app.stop();
     }
   });
-
-  opening with devtools, adds a second window
+  //
+  // opening with devtools, adds a second window
   it('shows an inital window', function() {
     return this.app.client.getWindowCount().then(function(count){
-      assert.equal(count,1)
+      assert.equal(count,2)
     })
   })
-  // 
+  //
   // it('has a file menu', function (){
   //
   // })
