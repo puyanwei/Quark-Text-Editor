@@ -1,12 +1,14 @@
 var assert = require("assert");
-var mainMenuTemplate = require("../mainMenuTemplate.js")
+var menu = require("../mainMenuTemplate")
 // require 'webdriver'?
 
-describe('App', function (){
+describe('Main', function (){
 
-  it('has a menu/ label named file', function (){
-    console.log(mainMenuTemplate)
-    let result = mainMenuTemplate[0].label
-     assert.equal(result, 'File')
+  context('#menu', function(){
+
+    it('has a menu/label named File', function (){
+      let result = menu[1].label
+      assert.equal(result, 'File')
+    });
   });
 });
