@@ -37,9 +37,16 @@ const mainMenuTemplate = [
     submenu: [
       {
         label: 'Save File'
+      },
+      {
+        label: 'Quit',
+        accelerator: process.platform == 'darwin' ? 'Command+Q': 'Ctrl+Q',
+        click(){
+        app.quit();
       }
-    ]
-  }
+    }
+  ]
+ }
 ]
 
 if(process.platform == 'darwin'){

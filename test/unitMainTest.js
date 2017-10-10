@@ -9,11 +9,4 @@ describe('App', function (){
     let result = mainMenuTemplate[0].label
      assert.equal(result, 'File')
   });
-  // it('has a menu/ label named file', function (){
-  //   links = $$('mainMenu');
-  //
-  //   links.forEach(function (link){
-  //     link.click;
-  //   })
-  // })
 });
