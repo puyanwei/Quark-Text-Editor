@@ -16,9 +16,7 @@ const mainMenuTemplate = [
   }
 ]
 
-module.exports = {
-  mainMenuTemplate
-};
+module.exports = mainMenuTemplate
 
 // if(process.platform == 'darwin'){
 //   mainMenuTemplate.unshift({});
