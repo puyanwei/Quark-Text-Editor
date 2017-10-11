@@ -35,11 +35,18 @@ describe("application launch", function() {
       .then(text => expect(text).to.eq("Text Editor"));
   });
 
-  it("finds the text on the page", function() {
+  it("should enter and show text", function(){
     return this.app.client
       .waitUntilWindowLoaded()
-      .waitForVisible("h2")
-      .getText("h2")
-      .then(text => expect(text).to.eq("HELLO WORLD"));
-  });
+      .leftClick('#editor')
+      .keys('Text editor, yeaaah')
+      .getText('#editor')
+      .then(text => expect(text).to.eq('Text editor, yeaaah'))
+      // .then(function(text){
+      //   expect(text).to.eq('Text editor, yeaaah')
+      // })
+  })
 });
+
+//click, then press enter and then add text
+// document.getElementByTagName('div')[0].innerHTML = string
