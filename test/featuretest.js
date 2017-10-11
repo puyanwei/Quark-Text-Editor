@@ -45,6 +45,20 @@ describe("application launch", function() {
       // .then(function(text){
       //   expect(text).to.eq('Text editor, yeaaah')
       // })
+  });
+
+  it("saves text into a file with the save as a new file button", function(){
+      return this.app.client
+      .waitUntilWindowLoaded()
+      .leftClick('#editor')
+      .keys('Hopefully this text will save to a new file')
+      .leftClick('#create-new-file')
+      .keys('savefileas')
+      .then(function(file){
+        console.log(file)
+        expect(file).to.eq('savefileas')
+      })
+
   })
 });
 

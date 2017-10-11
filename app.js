@@ -6,7 +6,7 @@ const {dialog} = require('electron').remote;
 
 function save () {
 
-document.getElementById("create-new-file").addEventListener("click", ()=> {
+  document.getElementById("create-new-file").addEventListener("click", ()=> {
 
   let content = document.getElementById("editor").textContent;
 
@@ -66,6 +66,14 @@ function openfile() {
 }
 
 openfile();
+
+// function updatefile(){
+//   document.getElementById("update-file").addEventListener("click", () => {
+// // display the open file diaog to slect a file.
+// // using the writeFile method of the fs you can replace the content of an existent file
+//     let theNewContent = "This is the new content file 12232"
+//   }, false);
+// }
 
 module.exports = {
   save,
