@@ -1,6 +1,6 @@
 var assert = require("assert");
 var menu = require("../mainMenuTemplate")
-// require 'webdriver'?
+var expect = require("chai").expect;
 
 describe('Main', function (){
 
@@ -8,7 +8,13 @@ describe('Main', function (){
 
     it('has a menu/label named File', function (){
       let result = menu[1].label
-      assert.equal(result, 'File')
+      expect(result).to.eq('File')
     });
+
+    it('has toggle DevTools button', function(){
+      let result = menu[2].label
+      expect(result).to.eq('Developer tools')
+    });
+
   });
 });

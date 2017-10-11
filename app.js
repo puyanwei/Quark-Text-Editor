@@ -5,7 +5,7 @@ const {dialog} = require('electron').remote;
 
 document.getElementById("create-new-file").addEventListener("click", ()=> {
 
-  let content = "This is the content of the new file";
+  let content = document.getElementById("editor");
 
 // display and save file dialog from the module
 // (the callback receives the path where the file should be created)
