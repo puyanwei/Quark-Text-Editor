@@ -4,6 +4,7 @@ const {dialog} = require('electron').remote;
 
 
 
+function save () {
 
 document.getElementById("create-new-file").addEventListener("click", ()=> {
 
@@ -32,3 +33,7 @@ document.getElementById("create-new-file").addEventListener("click", ()=> {
 
   });
 }, false);
+
+};
+
+save();
