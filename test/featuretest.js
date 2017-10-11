@@ -36,23 +36,10 @@ describe("application launch", function() {
   });
 
   it("finds the text on the page", function() {
-  return this.app.client
-    .waitUntilWindowLoaded()
-    .waitForVisible("h2")
-    .getText("h2")
-    .then(text => expect(text).to.eq("HELLO WORLD"))
-    .then(console.log("TESTING NOW"))
-    .then(this.app.client.getHTML("p").then((info)=> console.log(info)))
-    .then(this.app.client.getWindowCount().then((count)=> console.log(count)))
-});
-
-it("inputted text", function() {
-  return this.app.client
-    .waitUntilWindowLoaded()
-    .waitForVisible("h2")
-    .getText("h2")
-    .then(text => expect(text).to.eq("HELLO WORLD"))
-    .then(console.log("TESTING NOW"))
-    .then(this.app.client.getText("p").then((info)=> console.log(info)))
-    .then(this.app.client.getWindowCount().then((count)=> console.log(count)))
+    return this.app.client
+      .waitUntilWindowLoaded()
+      .waitForVisible("h2")
+      .getText("h2")
+      .then(text => expect(text).to.eq("HELLO WORLD"));
+  });
 });
