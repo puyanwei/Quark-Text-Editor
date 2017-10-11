@@ -16,9 +16,6 @@ app.on('ready', function () {
     slashes: true
   }))
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
-
   mainWindow.on('closed', () => {
     app.quit();
   })
@@ -26,9 +23,5 @@ app.on('ready', function () {
   const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
 
   Menu.setApplicationMenu(mainMenu);
-
-  if(process.platform == 'darwin'){
-    mainMenuTemplate.unshift({});
-  }
 
 });
