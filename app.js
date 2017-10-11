@@ -37,3 +37,36 @@ document.getElementById("create-new-file").addEventListener("click", ()=> {
 };
 
 save();
+
+
+// to read a file, we will show a dialog that allows
+ // the user to select the file easily to show its content in the screen.
+
+ // once the dialog is closed, it should provide the absolute path of the file.
+function openfile() {
+
+  document.getElementById("read-file").addEventListener("click", ()=> {
+
+   dialog.showOpenDialog((fileNames)=> {
+    //  this callback recieves an array of selected files. by default it only selects one
+    if (fileNames === undefined){
+      console.log("No files were selected");
+      return;
+    }
+      fs.readFile(fileNames, "utf-8", (err, data) => {
+      if(err){
+        alert("An arror occured reading the file :" + err.message);
+        return;
+      }
+      console.log("the content of the file is: " + data);
+    })
+   })
+  }, false);
+
+}
+
+openfile();
+
+module.exports = {
+  save,
+  openfile }
