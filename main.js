@@ -2,7 +2,7 @@ const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
 const url = require('url')
 const fs = require("fs")
-const mainMenuTemplate = require('./mainMenuTemplate')
+// const mainMenuTemplate = require('./mainMenuTemplate')
 
 let mainWindow;
 
@@ -17,7 +17,7 @@ app.on('ready', function () {
   }))
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   mainWindow.on('closed', () => {
     app.quit();
@@ -28,3 +28,19 @@ app.on('ready', function () {
   Menu.setApplicationMenu(mainMenu);
 
 });
+
+const mainMenuTemplate = [
+
+  {
+    label: 'File',
+    submenu: [
+      {
+        label: 'Save File'
+      }
+    ]
+  }
+]
+
+if(process.platform == 'darwin'){
+  mainMenuTemplate.unshift({});
+}
