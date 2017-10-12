@@ -21,26 +21,15 @@ describe("application launch", function() {
     }
   });
 
-  it("a window opens", function() {
-    return this.app.client.getWindowCount().then(function(count) {
-      expect(count).to.eq(1);
-    });
-  });
-
-  it("title says 'Text Editor'", function() {
+  it("should save text our editor into a file", function(){
     return this.app.client
       .waitUntilWindowLoaded()
-      .getTitle()
-      .then(text => expect(text).to.eq("Text Editor"));
-  });
-
-  it("should enter and show text", function(){
-    return this.app.client
-      .waitUntilWindowLoaded()
-      .leftClick('#editor')
-      .keys('Text editor, yeaaah')
-      .getText('#editor')
-      .then(text => expect(text).to.eq('Text editor, yeaaah'))
-  });
+      // .leftClick('#savebutton')
+      // // save filename
+      // .leftClick('#loadbutton')
+      // // load the filename you have saved after
+      // .getText('#editor')
+      // // check that the text in editor still match
+      // .then(text => expect(text).to.eq('This is a test.'))
+  })
 });
-

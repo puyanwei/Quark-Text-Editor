@@ -2,8 +2,29 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Text Editor</title>
   </head>
-    <body id = "editor" contentEditable = true>
+    <body>
+      <div id="buttonarea">
+        <button id ="loadbutton"> Load </button>
+        <button id ="savebutton"> Save </button>
+      </div>
+      <section class="container">
+        <div class="left-half">
+        </div>
+        <div class="right-half">
+          <div id="editor" contentEditable=true></div>
+        </div>
+      </section>
+
+      <!-- <iframe>
+        <html>
+        <body id="editor" contentEditable = "true"></body>
+        </html>
+      </iframe> -->
+
+    <script type="text/javascript" src="./readFile.js"></script>
+    <!-- <script type="text/javascript" src="./writeFile.js"></script> -->
     </body>
 </html>
