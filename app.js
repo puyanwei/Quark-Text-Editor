@@ -67,13 +67,34 @@ function openfile() {
 
 openfile();
 
-// function updatefile(){
-//   document.getElementById("update-file").addEventListener("click", () => {
-// // display the open file diaog to slect a file.
-// // using the writeFile method of the fs you can replace the content of an existent file
-//     let theNewContent = "This is the new content file 12232"
-//   }, false);
-// }
+function updatefile(){
+  document.getElementById("update-file").addEventListener("click", () => {
+// display the open file diaog to slect a file.
+// using the writeFile method of the fs you can replace the content of an existent file
+    let theNewContent = "This is the new content file 12232"
+  // using file write sstem you can replce the content of an exiting file
+
+  dialog.showOpenDialog((filenames) => {
+    if(filenames === undefined) {
+      console.log("No files were selected");
+      return;
+    }
+
+    fs.writeFile(filenames[0], theNewContent, (err) => {
+        if(err){
+          console.log("Cannot update file" + err.message);
+
+          return;
+        }
+
+       alret("file has been successfully updated");
+    });
+   })
+  }, false);
+}
+
+updatefile();
+
 
 module.exports = {
   save,
