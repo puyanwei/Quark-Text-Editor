@@ -6,6 +6,20 @@ const mainMenuTemplate = [
         label: 'Save File'
       }
     ]
+  },
+  {
+    label: 'Edit',
+    submenu: [
+      {
+        label: 'Cut'
+      },
+      {
+        label: 'Copy'
+      },
+      {
+        label: 'Paste'
+      }
+    ]
   }
 ]
 
