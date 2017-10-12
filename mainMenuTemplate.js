@@ -1,9 +1,19 @@
+const { app } = require('electron')
+
 const mainMenuTemplate = [
   {
     label: 'File',
     submenu: [
       {
-        label: 'Save File'
+        label: 'Save File',
+        accelerator: process.platform == 'darwin' ? 'Command+S' : 'Crtl+S'
+      },
+      {
+        label: 'Quit',
+        accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Crtl+Q',
+        click(){
+          app.quit();
+        }
       }
     ]
   },
@@ -11,13 +21,17 @@ const mainMenuTemplate = [
     label: 'Edit',
     submenu: [
       {
-        label: 'Cut'
+        label: 'Cut',
+        accelerator: process.platform == 'darwin' ? 'Command+X' : 'Crtl+X'
       },
       {
-        label: 'Copy'
+        label: 'Copy',
+        accelerator: process.platform == 'darwin' ? 'Command+C' : 'Crtl+C'
+
       },
       {
-        label: 'Paste'
+        label: 'Paste',
+        accelerator: process.platform == 'darwin' ? 'Command+P' : 'Crtl+P'
       }
     ]
   }
