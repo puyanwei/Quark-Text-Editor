@@ -10,6 +10,9 @@ app.on('ready', function () {
 
   mainWindow = new BrowserWindow({width: 800, height: 600})
 
+  let contents = mainWindow.webContents
+  console.log(contents)
+
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',

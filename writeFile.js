@@ -9,7 +9,7 @@ saveBtn.addEventListener("click", saveFile);
 // let content = document.getElementById('editor').innerText
 
 function saveFile(){
-  let content = "This is a test too."
+  let content = document.getElementById('editor').innerText
 
   dialog.showSaveDialog((filename) => {
     if (filename === undefined){
