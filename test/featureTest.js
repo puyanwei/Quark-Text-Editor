@@ -42,15 +42,15 @@ describe("application launch", function() {
       .getText("#editor")
       .then(text => expect(text).to.eq("Text editor, yeaaah"));
   });
-  //
-  // it("opens the dev tools using a keyboard shortcut", function() {
-  //   return this.app.client
-  //     .waitUntilWindowLoaded()
-  //     .click("#editor")
-  //     .pressKeycode(91)
-  //     .pressKeycode(73)
-  //     .then(text => expect(text).to.eq("Text editor, yeaaah"));
-  // });
+
+  it("opens the dev tools using a keyboard shortcut", function() {
+    return this.app.client
+      .waitUntilWindowLoaded()
+      .click("#editor")
+      .moveTo(, xoffset, yoffset);
+    .click
+      .then(text => expect(text).to.eq("Text editor, yeaaah"));
+  });
 });
 
 //click, then press enter and then add text
