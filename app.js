@@ -16,10 +16,10 @@ function save () {
 
     // if the callback doesn't recieve any argument, it means that the user
     // probably cancelled the creation of the file.
-    // if(filename === undefined){
-    //   console.log("The user clicked the button, but didn't create a file");
-    //   return;
-    // }
+    if(filename === undefined){
+      console.log("The user clicked the button, but didn't create a file");
+      return;
+    }
 
 // use the filesystem module to create the file in the providen path that the dialog returned
 // (the content of the file is expected as the second argument, that is a very simple string)
@@ -45,6 +45,8 @@ save();
 //  once the dialog is closed, it should provide the absolute path of the file.
 
 function openfile() {
+
+  // click () { require('electron').shell.openExternal('https://electron.atom.io') }
 
   document.getElementById("read-file").addEventListener("click", ()=> {
 
@@ -97,6 +99,4 @@ function openfile() {
 // updatefile();
 
 
-module.exports = {
-  save,
-  openfile }
+module.exports = save

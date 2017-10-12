@@ -1,9 +1,22 @@
+
+
+
+
 const mainMenuTemplate = [
   {
     label: 'File',
     submenu: [
       {
-        label: 'Save File'
+        label: 'Save File',
+        click(item, focusedWindow){
+          // focusedWndow.close();
+        }
+      },
+      {
+        label: 'Quit',
+        click(item, focusedWindow){
+        focusedWindow.close();
+        }
       }
     ]
   }
