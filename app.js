@@ -16,10 +16,10 @@ function save () {
 
     // if the callback doesn't recieve any argument, it means that the user
     // probably cancelled the creation of the file.
-    if(filename === undefined){
-      console.log("The user clicked the button, but didn't create a file");
-      return;
-    }
+    // if(filename === undefined){
+    //   console.log("The user clicked the button, but didn't create a file");
+    //   return;
+    // }
 
 // use the filesystem module to create the file in the providen path that the dialog returned
 // (the content of the file is expected as the second argument, that is a very simple string)
@@ -29,6 +29,7 @@ function save () {
       return;
     }
   })
+
   alert("File created!")
 
   });
@@ -40,9 +41,9 @@ save();
 
 
 // to read a file, we will show a dialog that allows
- // the user to select the file easily to show its content in the screen.
+//  the user to select the file easily to show its content in the screen.
+//  once the dialog is closed, it should provide the absolute path of the file.
 
- // once the dialog is closed, it should provide the absolute path of the file.
 function openfile() {
 
   document.getElementById("read-file").addEventListener("click", ()=> {
@@ -64,36 +65,36 @@ function openfile() {
   }, false);
 
 }
-
-openfile();
-
-function updatefile(){
-  document.getElementById("update-file").addEventListener("click", () => {
-// display the open file diaog to slect a file.
-// using the writeFile method of the fs you can replace the content of an existent file
-    let theNewContent = "This is the new content file 12232"
-  // using file write sstem you can replce the content of an exiting file
-
-  dialog.showOpenDialog((filenames) => {
-    if(filenames === undefined) {
-      console.log("No files were selected");
-      return;
-    }
-
-    fs.writeFile(filenames[0], theNewContent, (err) => {
-        if(err){
-          console.log("Cannot update file" + err.message);
-
-          return;
-        }
-
-       alret("file has been successfully updated");
-    });
-   })
-  }, false);
-}
-
-updatefile();
+//
+// openfile();
+//
+// function updatefile(){
+//   document.getElementById("update-file").addEventListener("click", () => {
+// // display the open file diaog to slect a file.
+// // using the writeFile method of the fs you can replace the content of an existent file
+//     let theNewContent = "This is the new content file 12232"
+//   // using file write sstem you can replce the content of an exiting file
+//
+//   dialog.showOpenDialog((filenames) => {
+//     if(filenames === undefined) {
+//       console.log("No files were selected");
+//       return;
+//     }
+//
+//     fs.writeFile(filenames[0], theNewContent, (err) => {
+//         if(err){
+//           console.log("Cannot update file" + err.message);
+//
+//           return;
+//         }
+//
+//        alret("file has been successfully updated");
+//     });
+//    })
+//   }, false);
+// }
+//
+// updatefile();
 
 
 module.exports = {

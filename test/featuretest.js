@@ -2,6 +2,7 @@
 const electron = require("electron");
 var expect = require("chai").expect;
 
+
 var Application = require("spectron").Application;
 var assert = require("assert");
 
@@ -53,11 +54,16 @@ describe("application launch", function() {
       .leftClick('#editor')
       .keys('Hopefully this text will save to a new file')
       .leftClick('#create-new-file')
-      .keys('savefileas')
-      .then(function(file){
-        console.log(file)
-        expect(file).to.eq('savefileas')
-      })
+      setTimeout(window.leftClick('#cancel'), 800);
+      // .then(function (console){
+      //   expect(console).to.eq("An error occured with the creation of the file")
+      // })
+      // .then(ss => expect(ss).to.include('save'))
+      // .then(result => result.keys('savefileas')})
+      // .then(function(file){
+      //   console.log(file)
+      //   expect(file).to.eq('savefileas')
+      // })
 
   })
 });
