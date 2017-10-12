@@ -1,7 +1,5 @@
-//This is what we need to include for mocha to run its tests
 const electron = require("electron");
 var expect = require("chai").expect;
-
 
 var Application = require("spectron").Application;
 var assert = require("assert");
@@ -25,11 +23,11 @@ describe("application launch", function() {
 
   it("a window opens", function() {
     return this.app.client.getWindowCount().then(function(count) {
-      assert.equal(count, 1);
+      expect(count).to.eq(1);
     });
   });
 
-  it("title says Text Editor", function() {
+  it("title says 'Text Editor'", function() {
     return this.app.client
       .waitUntilWindowLoaded()
       .getTitle()
@@ -43,30 +41,24 @@ describe("application launch", function() {
       .keys('Text editor, yeaaah')
       .getText('#editor')
       .then(text => expect(text).to.eq('Text editor, yeaaah'))
-      // .then(function(text){
-      //   expect(text).to.eq('Text editor, yeaaah')
-      // })
   });
 
   it("saves text into a file with the save as a new file button", function(){
-      return this.app.client
-      .waitUntilWindowLoaded()
-      .leftClick('#editor')
-      .keys('Hopefully this text will save to a new file')
-      .leftClick('#create-new-file')
-      setTimeout(window.leftClick('#cancel'), 800);
-      // .then(function (console){
-      //   expect(console).to.eq("An error occured with the creation of the file")
-      // })
-      // .then(ss => expect(ss).to.include('save'))
-      // .then(result => result.keys('savefileas')})
-      // .then(function(file){
-      //   console.log(file)
-      //   expect(file).to.eq('savefileas')
-      // })
-
+    return this.app.client
+    .waitUntilWindowLoaded()
+    .leftClick('#editor')
+    .keys('Hopefully this text will save to a new file')
+    .leftClick('#create-new-file')
+    setTimeout(window.leftClick('#cancel'), 800);
+    // .then(function (console){
+    //   expect(console).to.eq("An error occured with the creation of the file")
+    // })
+    // .then(ss => expect(ss).to.include('save'))
+    // .then(result => result.keys('savefileas')})
+    // .then(function(file){
+    //   console.log(file)
+    //   expect(file).to.eq('savefileas')
+    // })
   })
-});
 
-//click, then press enter and then add text
-// document.getElementByTagName('div')[0].innerHTML = string
+});

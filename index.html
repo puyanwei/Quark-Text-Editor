@@ -2,18 +2,34 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Text Editor</title>
   </head>
     <body>
-      <h3> Text box </h3>
-      <div id = "editor" contentEditable = true></div>
-      <h3> Save this text into a file </h3>
-      <input type="button" id="create-new-file" value="Save as New File"/>
-      <input type="button" id="read-file" value="Select a file to open"/>
-      <input type="button" id="update-file" value="Update a file"/>
+      <div id="buttonarea">
+        <h3> Save this text into a file </h3>
+        <input type="button" id="create-new-file" value="Save as New File"/>
+        <input type="button" id="read-file" value="Select a file to open"/>
+        <input type="button" id="update-file" value="Update a file"/>
+
+      </div>
+      <section class="container">
+        <div class="left-half">
+        </div>
+        <div class="right-half">
+          <div id="editor" contentEditable=true></div>
+        </div>
+      </section>
+
+      <!-- <iframe>
+        <html>
+        <body id="editor" contentEditable = "true"></body>
+        </html>
+      </iframe> -->
+
       <script>
       require('./app.js')
       </script>
-
+    <!-- <script type="text/javascript" src="./writeFile.js"></script> -->
     </body>
 </html>
