@@ -1,4 +1,3 @@
-//This is what we need to include for mocha to run its tests
 const electron = require("electron");
 var expect = require("chai").expect;
 
@@ -24,28 +23,34 @@ describe("application launch", function() {
 
   it("a window opens", function() {
     return this.app.client.getWindowCount().then(function(count) {
-      assert.equal(count, 1);
+      expect(count).to.eq(1);
     });
   });
 
-  it("title says Text Editor", function() {
+  it("title says 'Text Editor'", function() {
     return this.app.client
       .waitUntilWindowLoaded()
       .getTitle()
       .then(text => expect(text).to.eq("Text Editor"));
   });
 
-  it("should enter and show text", function(){
+  it("should enter and show text", function() {
     return this.app.client
       .waitUntilWindowLoaded()
-      .leftClick('#editor')
-      .keys('Text editor, yeaaah')
-      .getText('#editor')
-      .then(text => expect(text).to.eq('Text editor, yeaaah'))
-      // .then(function(text){
-      //   expect(text).to.eq('Text editor, yeaaah')
-      // })
-  })
+      .click("#editor")
+      .keys("Text editor, yeaaah")
+      .getText("#editor")
+      .then(text => expect(text).to.eq("Text editor, yeaaah"));
+  });
+  //
+  // it("opens the dev tools using a keyboard shortcut", function() {
+  //   return this.app.client
+  //     .waitUntilWindowLoaded()
+  //     .click("#editor")
+  //     .pressKeycode(91)
+  //     .pressKeycode(73)
+  //     .then(text => expect(text).to.eq("Text editor, yeaaah"));
+  // });
 });
 
 //click, then press enter and then add text
