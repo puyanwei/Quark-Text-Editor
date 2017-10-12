@@ -2,17 +2,21 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Text Editor</title>
   </head>
     <body>
-      <div>
+      <div id="buttonarea">
         <button id ="loadbutton"> Load </button>
         <button id ="savebutton"> Save </button>
       </div>
-      <div id="editor" contentEditable = "true">
-
-
-      </div>
+      <section class="container">
+        <div class="left-half">
+        </div>
+        <div class="right-half">
+          <div id="editor" contentEditable=true></div>
+        </div>
+      </section>
 
       <!-- <iframe>
         <html>
