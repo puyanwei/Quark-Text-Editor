@@ -2,7 +2,11 @@ const {dialog} = require('electron').remote;
 const fs = require('fs')
 
 
+
 window.onload = function (){
+
+  let currentFileName = "nothing"
+  console.log(currentFileName)
 
   // Buttons
 
@@ -14,6 +18,10 @@ window.onload = function (){
 
   loadBtn.addEventListener("click", loadFile);
 
+  var saveBtn = document.getElementById("save-button");
+
+  saveBtn.addEventListener("click", saveFile);
+
  //  Load
 
   function loadFile() {
@@ -21,12 +29,15 @@ window.onload = function (){
     var editor = document.getElementById('editor');
 
     dialog.showOpenDialog((fileNames) => {
-      console.log(fileNames)
+
 
       // if (fileNames[0] === undefined){
       //   console.log("No files were selected");
       //   return;
       // }
+
+      currentFileName = fileNames[0]
+        console.log(currentFileName)
 
        fs.readFile(fileNames[0], 'utf8', (err, data) => {
          if(err){
@@ -46,20 +57,37 @@ window.onload = function (){
   function saveAsFile(){
     let content = document.getElementById('editor').innerText
 
-    dialog.showSaveDialog((filename) => {
+    dialog.showSaveDialog((fileName) => {
       if (filename === undefined){
         console.log("You didn't save the file");
         return;
       }
 
-      fs.writeFile(filename, content, (err) => {
+      currentFileName = fileName
+
+      fs.writeFile(fileName, content, (err) => {
         if (err){
           alert("An error occured creating the file " + err.message)
         }
         alert("The file has been succesfully saved");
       });
+
+
     });
   };
+
+  function saveFile(){
+
+    let content = document.getElementById('editor').innerText
+
+    fs.writeFile(currentFileName , content, (err) => {
+      if (err){
+        alert("An error occured creating the file " + err.message)
+      }
+      alert("The file has been succesfully saved");
+      console.log(currentFileName)
+    });
+  }
 
 }
 // module.exports = loadFile
