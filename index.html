@@ -11,6 +11,7 @@
         <button id ="load-button"> Load </button>
         <button id ="save-as-button"> Save As </button>
         <button id ="save-button"> Save</button>
+        <button id ="syntax-button">Syntax</button>
       </div>
 
       <section class="container">
@@ -29,5 +30,16 @@
 
     <script type="text/javascript" src="./readFile.js"></script>
     <script src="prism.js"></script>
+    <!-- Updating Syntax -->
+    <script>
+    var syntaxBtn = document.getElementById("syntax-button");
+
+    syntaxBtn.addEventListener("click", updateSyntax);
+
+    function updateSyntax(){
+      Prism.highlightAll();
+    };
+
+    </script>
     </body>
 </html>
