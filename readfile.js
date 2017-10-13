@@ -17,11 +17,28 @@ window.onload = function (){
  //  Load
 
   function loadFile() {
+
     var editor = document.getElementById('editor');
 
-    var readThisFile = fs.readFileSync('file.txt', 'utf8');
+    dialog.showOpenDialog((fileNames) => {
+      console.log(fileNames)
 
-    editor.innerText = readThisFile;
+      // if (fileNames[0] === undefined){
+      //   console.log("No files were selected");
+      //   return;
+      // }
+
+       fs.readFile(fileNames[0], 'utf8', (err, data) => {
+         if(err){
+           return alert("An arror occured reading the file :");
+         }
+         console.log("the content of the file is: " + data);
+         editor.innerText =  data
+
+       })
+
+
+    })
   }
 
 
