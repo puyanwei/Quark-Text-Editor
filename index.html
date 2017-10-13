@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/prism.css"/>
     <title>Text Editor</title>
   </head>
     <body>
@@ -10,13 +11,13 @@
         <button id ="load-button"> Load </button>
         <button id ="save-as-button"> Save As </button>
         <button id ="save-button"> Save</button>
-
       </div>
+
       <section class="container">
         <div class="left-half">
         </div>
         <div class="right-half">
-          <div id="editor" contentEditable=true></div>
+          <pre><code class="language-javascript" id="editor" contentEditable=true>function ()</code></pre>
         </div>
       </section>
 
@@ -27,6 +28,6 @@
       </iframe> -->
 
     <script type="text/javascript" src="./readFile.js"></script>
-    <!-- <script type="text/javascript" src="./writeFile.js"></script> -->
+    <script src="prism.js"></script>
     </body>
 </html>
