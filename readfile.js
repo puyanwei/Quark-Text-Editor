@@ -6,11 +6,11 @@ window.onload = function (){
 
   // Buttons
 
-  var saveBtn = document.getElementById("savebutton");
+  var saveAsBtn = document.getElementById("save-as-button");
 
-  saveBtn.addEventListener("click", saveFile);
+  saveAsBtn.addEventListener("click", saveAsFile);
 
-  var loadBtn = document.getElementById("loadbutton");
+  var loadBtn = document.getElementById("load-button");
 
   loadBtn.addEventListener("click", loadFile);
 
@@ -43,7 +43,7 @@ window.onload = function (){
 
 
   //  save
-  function saveFile(){
+  function saveAsFile(){
     let content = document.getElementById('editor').innerText
 
     dialog.showSaveDialog((filename) => {
