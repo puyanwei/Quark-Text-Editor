@@ -3,18 +3,22 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/prism.css"/>
     <title>Text Editor</title>
   </head>
     <body>
       <div id="buttonarea">
-        <button id ="loadbutton"> Load </button>
-        <button id ="savebutton"> Save </button>
+        <button id ="load-button"> Load </button>
+        <button id ="save-as-button"> Save As </button>
+        <button id ="save-button"> Save</button>
+        <button id ="syntax-button">Syntax</button>
       </div>
+
       <section class="container">
         <div class="left-half">
         </div>
         <div class="right-half">
-          <div id="editor" contentEditable=true></div>
+          <pre><code class="language-javascript" id="editor" contentEditable=true>function ()</code></pre>
         </div>
       </section>
 
@@ -25,6 +29,18 @@
       </iframe> -->
 
     <script type="text/javascript" src="./readFile.js"></script>
-    <!-- <script type="text/javascript" src="./writeFile.js"></script> -->
+    <script src="prism.js"></script>
+    <!-- Updating Syntax -->
+    <script>
+    // document.addEventListener("keypress", updateSyntax);
+    var syntaxBtn = document.getElementById("syntax-button");
+
+    syntaxBtn.addEventListener("click", updateSyntax);
+
+    function updateSyntax(){
+      Prism.highlightAll();
+    };
+
+    </script>
     </body>
 </html>

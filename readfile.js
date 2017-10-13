@@ -2,47 +2,92 @@ const {dialog} = require('electron').remote;
 const fs = require('fs')
 
 
+
 window.onload = function (){
+
+  let currentFileName = "nothing"
+  console.log(currentFileName)
 
   // Buttons
 
-  var saveBtn = document.getElementById("savebutton");
+  var saveAsBtn = document.getElementById("save-as-button");
 
-  saveBtn.addEventListener("click", saveFile);
+  saveAsBtn.addEventListener("click", saveAsFile);
 
-  var loadBtn = document.getElementById("loadbutton");
+  var loadBtn = document.getElementById("load-button");
 
   loadBtn.addEventListener("click", loadFile);
+
+  var saveBtn = document.getElementById("save-button");
+
+  saveBtn.addEventListener("click", saveFile);
 
  //  Load
 
   function loadFile() {
+
     var editor = document.getElementById('editor');
 
-    var readThisFile = fs.readFileSync('file.txt', 'utf8');
+    dialog.showOpenDialog((fileNames) => {
 
-    editor.innerText = readThisFile;
+
+      // if (fileNames[0] === undefined){
+      //   console.log("No files were selected");
+      //   return;
+      // }
+
+      currentFileName = fileNames[0]
+        console.log(currentFileName)
+
+       fs.readFile(fileNames[0], 'utf8', (err, data) => {
+         if(err){
+           return alert("An arror occured reading the file :");
+         }
+         console.log("the content of the file is: " + data);
+         editor.innerText =  data
+
+       })
+
+
+    })
   }
 
 
   //  save
-  function saveFile(){
+  function saveAsFile(){
     let content = document.getElementById('editor').innerText
 
-    dialog.showSaveDialog((filename) => {
+    dialog.showSaveDialog((fileName) => {
       if (filename === undefined){
         console.log("You didn't save the file");
         return;
       }
 
-      fs.writeFile(filename, content, (err) => {
+      currentFileName = fileName
+
+      fs.writeFile(fileName, content, (err) => {
         if (err){
           alert("An error occured creating the file " + err.message)
         }
         alert("The file has been succesfully saved");
       });
+
+
     });
   };
+
+  function saveFile(){
+
+    let content = document.getElementById('editor').innerText
+
+    fs.writeFile(currentFileName , content, (err) => {
+      if (err){
+        alert("An error occured creating the file " + err.message)
+      }
+      alert("The file has been succesfully saved");
+      console.log(currentFileName)
+    });
+  }
 
 }
 // module.exports = loadFile
