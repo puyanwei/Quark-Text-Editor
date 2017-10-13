@@ -12,6 +12,7 @@
         <button id ="save-as-button"> Save As </button>
         <button id ="save-button"> Save</button>
         <button id ="syntax-button">Syntax</button>
+        <button id ="word-count">Word Count</button>
       </div>
 
       <section class="container">
@@ -33,14 +34,13 @@
     <!-- Updating Syntax -->
     <script>
     // document.addEventListener("keypress", updateSyntax);
-    var syntaxBtn = document.getElementById("syntax-button");
+var syntaxBtn = document.getElementById("syntax-button");
 
-    syntaxBtn.addEventListener("click", updateSyntax);
+syntaxBtn.addEventListener("click", updateSyntax);
 
-    function updateSyntax(){
-      Prism.highlightAll();
-    };
-
-    </script>
+function updateSyntax() {
+  Prism.highlightAll();
+}
+</script>
     </body>
 </html>
