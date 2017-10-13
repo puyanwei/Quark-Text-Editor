@@ -42,23 +42,5 @@ describe("application launch", function() {
       .getText('#editor')
       .then(text => expect(text).to.eq('Text editor, yeaaah'))
   });
-
-  it("saves text into a file with the save as a new file button", function(){
-    return this.app.client
-    .waitUntilWindowLoaded()
-    .leftClick('#editor')
-    .keys('Hopefully this text will save to a new file')
-    .leftClick('#create-new-file')
-    setTimeout(window.leftClick('#cancel'), 800);
-    // .then(function (console){
-    //   expect(console).to.eq("An error occured with the creation of the file")
-    // })
-    // .then(ss => expect(ss).to.include('save'))
-    // .then(result => result.keys('savefileas')})
-    // .then(function(file){
-    //   console.log(file)
-    //   expect(file).to.eq('savefileas')
-    // })
-  })
-
 });
+
