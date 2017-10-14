@@ -34,7 +34,7 @@ window.onload = function (){
          }
          console.log("the content of the file is: " + data);
          editor.innerText =  data
-
+         updateSyntax()
        })
 
 
