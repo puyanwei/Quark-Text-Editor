@@ -5,8 +5,13 @@ const mainMenuTemplate = [
     label: 'File',
     submenu: [
       {
-        label: 'Save File',
-        accelerator: process.platform == 'darwin' ? 'Command+S' : 'Crtl+S'
+        label: 'Save',
+        accelerator: process.platform == 'darwin' ? 'Command+S' : 'Crtl+S',
+      },
+      {
+        label: 'Open...',
+        accelerator: process.platform == 'darwin' ? 'Command+O' : 'Crtl+O',
+        // click () { loadFile() }
       },
       {
         label: 'Quit',
