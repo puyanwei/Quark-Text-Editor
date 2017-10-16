@@ -1,3 +1,5 @@
+function SyntaxUpdate(){
+
 
 const path = require("path");
 // keypress event hashed out until cursor issues can be resolved.
@@ -16,6 +18,10 @@ function updateSyntax() {
 function prismFunc(){
   Prism.highlightElement(editor);
 }
+
+};
+
+SyntaxUpdate();
 
 // const Prism = require('./prism.js')
 // const path = require('path')
