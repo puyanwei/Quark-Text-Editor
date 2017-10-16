@@ -21,25 +21,39 @@ describe("Menu", function() {
 
   context("#Edit", function() {
 
+    let submenu = menu[2].submenu
+
     it('has a label named "Edit" in the menu', function() {
-      const result = menu[2].label
-      expect(result).to.eq("Edit");
+      const menuResult = menu[2].label
+      expect(menuResult).to.eq("Edit");
     });
 
     it('has a Cut option', function (){
-      const result = menu[2].submenu[0].label
-      expect(result).to.eq('Cut')
+      const hash = { label: 'Cut', accelerator: 'Command+X', selector: 'cut:' }
+      expect(submenu).to.deep.include(hash)
     });
 
     it('has a Copy option', function (){
-      const result = menu[2].submenu[1].label
-      expect(result).to.eq('Copy')
+      const hash = { label: 'Copy', accelerator: 'Command+C', selector: 'copy:' }
+      expect(submenu).to.deep.include(hash)
     });
 
-    it('has a Paste', function (){
-      const result = menu[2].submenu[2].label
-      expect(result).to.eq('Paste')
+    it('has a Paste option', function (){
+      const hash = { label: 'Paste', accelerator: 'Command+V', selector: 'paste:' }
+      expect(submenu).to.deep.include(hash)
     });
+
+    it('has a Undo option', function (){
+      const hash = { label: 'Undo', accelerator: 'Command+Z', selector: 'undo:' }
+      expect(submenu).to.deep.include(hash)
+    });
+
+    it('has a Redo option', function (){
+      const hash = { label: 'Redo', accelerator: 'Command+Y', selector: 'redo:' }
+      expect(submenu).to.deep.include(hash)
+    });
+
+
 
   });
 
