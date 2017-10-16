@@ -12,6 +12,7 @@
     <button id ="save-as-button"> Save As </button>
     <button id ="save-button"> Save</button>
     <button id ="syntax-button">Syntax</button>
+    <button id ="word-count">Count</button>
   </div>
 
   <section class="container">
@@ -35,42 +36,37 @@
 <script src="prism.js"></script>
 <!-- Updating Syntax -->
 <script>
-
-const path = require('path')
+const path = require("path");
 // keypress event hashed out until cursor issues can be resolved.
 // document.addEventListener("keypress", updateSyntax);
 var syntaxBtn = document.getElementById("syntax-button");
-var editor = document.getElementById('editor');
+var editor = document.getElementById("editor");
 
 syntaxBtn.addEventListener("click", updateSyntax);
 
-function updateSyntax(){
+function updateSyntax() {
   // targets only the editor element
   Prism.highlightElement(editor);
   // targets the whole page
   // Prism.highlightAll();
-};
+}
 
-const treeBtn = document.getElementById("tree-dir")
-const li = document.getElementById("tree")
+const treeBtn = document.getElementById("tree-dir");
+const li = document.getElementById("tree");
 
 treeBtn.addEventListener("click", treeDir);
 
-function treeDir(){
-
-  const folder = './';
+function treeDir() {
+  const folder = "./";
 
   fs.readdir(folder, (err, files) => {
     files.forEach(file => {
       console.log(file);
-      tree += `<li> ${file} </li>`
+      tree += `<li> ${file} </li>`;
     });
-    li.innerHTML = tree
-  })
-
+    li.innerHTML = tree;
+  });
 }
-
-
 </script>
 </body>
 </html>
