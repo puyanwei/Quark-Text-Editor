@@ -21,10 +21,10 @@ describe("application launch", function() {
     }
   });
 
-  it("should load text from the file into our window", function(){
+  xit("should load text from the file into our window", function(){
     return this.app.client
       .waitUntilWindowLoaded()
-      .leftClick('#loadbutton')
+      .leftClick('#load-button')
       .getText('#editor')
       .then(text => expect(text).to.eq('This is a test.'))
   })

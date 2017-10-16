@@ -19,21 +19,29 @@ const mainMenuTemplate = [
     submenu: [
       {
         label: 'Cut',
-        accelerator: process.platform == 'darwin' ? 'Command+X' : 'Crtl+X'
+        accelerator: process.platform == 'darwin' ? 'Command+X' : 'Crtl+X',
+        selector: "cut:"
       },
       {
         label: 'Copy',
         accelerator: process.platform == 'darwin' ? 'Command+C' : 'Crtl+C',
         selector: "copy:"
-        // click(){
-        //   var content = clipboard.readText();
-        //   alert(content);
-        // }
       },
       {
         label: 'Paste',
-        accelerator: process.platform == 'darwin' ? 'Command+P' : 'Crtl+P'
-      }
+        accelerator: process.platform == 'darwin' ? 'Command+V' : 'Crtl+V',
+        selector: "paste:"
+      },
+      {
+        label: 'Undo',
+        accelerator: process.platform == 'darwin' ? 'Command+Z' : 'Crtl+Z',
+        selector: "undo:"
+      },
+      {
+        label: 'Redo',
+        accelerator: process.platform == 'darwin' ? 'Command+Y' : 'Crtl+Y',
+        selector: "redo:"
+      },
     ]
   }
 ]
