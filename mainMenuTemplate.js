@@ -9,6 +9,10 @@ const mainMenuTemplate = [
         accelerator: process.platform == 'darwin' ? 'Command+S' : 'Crtl+S',
       },
       {
+        label: 'Save As',
+        accelerator: process.platform == 'darwin' ? 'Shif+Command+S' : 'Shift+Crtl+S',
+      },
+      {
         label: 'Open...',
         accelerator: process.platform == 'darwin' ? 'Command+O' : 'Crtl+O',
         // click () { loadFile() }
