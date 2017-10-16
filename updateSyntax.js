@@ -1,7 +1,7 @@
 
 const path = require("path");
 // keypress event hashed out until cursor issues can be resolved.
-document.addEventListener("keypress", updateSyntax);
+// document.addEventListener("keypress", updateSyntax);
 var syntaxBtn = document.getElementById("syntax-button");
 var editor = document.getElementById("editor");
 

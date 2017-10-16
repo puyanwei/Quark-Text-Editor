@@ -22,11 +22,16 @@ describe("application launch", function() {
   });
 
 
-   it ("should add line numbers to the text", function(){
-     return this.app.client
-      .waitUntilWindowLoaded()
-      .leftClick('#editor')
-      .keys('Text editor')
-   });
 
+
+it ("should enter and show text", function(){
+  return this.app.client
+   .waitUntilWindowLoaded()
+   .leftClick('#editor')
+   .keys('Text editor')
+   .getText('#editor')
+   .then(text => expect (text).to.eq('Text editor'))
  });
+
+
+});
