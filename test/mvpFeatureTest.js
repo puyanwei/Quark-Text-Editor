@@ -31,6 +31,8 @@ it ("should enter and show text", function(){
    .keys('Text editor')
    .getText('#editor')
    .then(text => expect (text).to.eq('Text editor'))
+  //  var elem = ('#editor')
+  //  var color = elem.getCss
  });
 
 

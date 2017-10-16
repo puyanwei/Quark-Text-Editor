@@ -7,6 +7,7 @@ document.addEventListener("keypress", updateSyntax);
 var syntaxBtn = document.getElementById("syntax-button");
 var editor = document.getElementById("editor");
 
+
 syntaxBtn.addEventListener("click", updateSyntax);
 
 var timeout
@@ -16,6 +17,8 @@ function updateSyntax() {
 };
 
 function prismFunc(){
+  var curserPosition = editor.getBoundingClientRect()
+  console.log(curserPosition)
   Prism.highlightElement(editor);
 }
 
