@@ -5,8 +5,7 @@ const fs = require('fs')
 
 window.onload = function (){
 
-  let currentFileName = "nothing"
-  console.log(currentFileName)
+  let currentFileName;
 
   // Buttons
 
