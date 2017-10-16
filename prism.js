@@ -615,7 +615,7 @@ if (Prism.languages.markup) {
 			alias: 'language-css'
 		}
 	});
-	
+
 	Prism.languages.insertBefore('inside', 'attr-value', {
 		'style-attr': {
 			pattern: /\s*style=("|').*?\1/i,
@@ -1147,7 +1147,7 @@ Prism.hooks.add('before-sanity-check', function(env) {
 	if (!pre || !lines || !/pre/i.test(pre.nodeName)) {
 		return;
 	}
-	
+
 	/*
 	* Cleanup for other plugins (e.g. autoloader).
 	 *

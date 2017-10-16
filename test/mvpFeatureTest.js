@@ -21,18 +21,17 @@ describe("application launch", function() {
     }
   });
 
-  it("should save text our editor into a file", function(){
-    return this.app.client
-      .waitUntilWindowLoaded()
-      // .leftClick('#savebutton')
-      // // save filename
-      // .leftClick('#loadbutton')
-      // // load the filename you have saved after
-      // .getText('#editor')
-      // // check that the text in editor still match
-      // .then(text => expect(text).to.eq('This is a test.'))
-  });
 
 
-  
+
+it ("should enter and show text", function(){
+  return this.app.client
+   .waitUntilWindowLoaded()
+   .leftClick('#editor')
+   .keys('Text editor')
+   .getText('#editor')
+   .then(text => expect (text).to.eq('Text editor'))
+ });
+
+
 });
