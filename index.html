@@ -47,8 +47,9 @@ syntaxBtn.addEventListener("click", updateSyntax);
 function updateSyntax() {
   // targets only the editor element
   Prism.highlightElement(editor);
+
   // targets the whole page
-  // Prism.highlightAll();
+  Prism.highlightAll();
 }
 
 const treeBtn = document.getElementById("tree-dir");

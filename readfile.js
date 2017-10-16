@@ -19,10 +19,18 @@ window.onload = function() {
   saveBtn.addEventListener("click", saveFile);
 
   //  Load
+
+  var intervalID = window.setInterval(myCallback, 500);
   var wordCountBtn = document.getElementById("word-count");
 
-  wordCountBtn.addEventListener("click", wordCount);
+  function myCallback() {
+    wordCount();
+  }
 
+  // function timer() {
+  //     setTimeout(function(){ alert("Hello"); }, 3000);
+  // }
+  //
   function wordCount() {
     var text = document.getElementById("editor").innerText;
     console.log(text.split(" ").length);
