@@ -1,5 +1,12 @@
-const { dialog } = require("electron").remote;
-const fs = require("fs");
+
+const electron = require('electron');
+const {dialog} = require('electron').remote;
+const fs = require('fs')
+const ipc = electron.ipcRenderer
+
+
+
+
 
 window.onload = function() {
   let currentFileName;
@@ -63,8 +70,9 @@ window.onload = function() {
   function saveAsFile() {
     let content = document.getElementById("editor").innerText;
 
-    dialog.showSaveDialog(fileName => {
-      if (filename === undefined) {
+    dialog.showSaveDialog((fileName) => {
+      if (fileName === undefined){
+
         console.log("You didn't save the file");
         return;
       }
