@@ -10,10 +10,7 @@ const mainMenuTemplate = [
       },
       {
         label: 'Quit',
-        accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Crtl+Q',
-        click(){
-          app.quit();
-        }
+        accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Crtl+Q'
       }
     ]
   },
@@ -26,8 +23,12 @@ const mainMenuTemplate = [
       },
       {
         label: 'Copy',
-        accelerator: process.platform == 'darwin' ? 'Command+C' : 'Crtl+C'
-
+        accelerator: process.platform == 'darwin' ? 'Command+C' : 'Crtl+C',
+        selector: "copy:"
+        // click(){
+        //   var content = clipboard.readText();
+        //   alert(content);
+        // }
       },
       {
         label: 'Paste',
