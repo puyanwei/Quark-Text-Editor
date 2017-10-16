@@ -45,6 +45,7 @@ var editor = document.getElementById("editor");
 syntaxBtn.addEventListener("click", updateSyntax);
 
 function updateSyntax() {
+  syntaxRecog()
   // targets only the editor element
   Prism.highlightElement(editor);
   // targets the whole page
@@ -67,6 +68,21 @@ function treeDir() {
     li.innerHTML = tree;
   });
 }
+
+function syntaxRecog(){
+    var fileLang = currentFileName.replace(/.*\./, "")
+    
+    var languages = { "css": "css",
+                      "js": "javascript",
+                      "rb": "ruby",
+                      "html": "html",
+                      "md": "markdown"
+                    }
+    
+    console.log(languages[fileLang.toString()])
+    editor.className = `language-${languages[fileLang.toString()]}`
+}
+
 </script>
 </body>
 </html>

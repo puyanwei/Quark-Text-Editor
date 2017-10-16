@@ -5,8 +5,6 @@ const ipc = electron.ipcRenderer
 
 
 
-window.onload = function (){
-
   let currentFileName;
 
   // Buttons
@@ -90,7 +88,6 @@ window.onload = function (){
     });
   }
 
-}
 // module.exports = loadFile
 
 
