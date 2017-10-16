@@ -26,7 +26,10 @@ describe("application launch", function() {
      return this.app.client
       .waitUntilWindowLoaded()
       .leftClick('#editor')
-      .keys('Text editor')
+      .keys('function()')
+      .leftClick("#syntax-button")
+      .getText('#editor')
+      .then(text => expect(text).to.eq())
    });
 
  });
