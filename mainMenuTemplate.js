@@ -5,15 +5,21 @@ const mainMenuTemplate = [
     label: 'File',
     submenu: [
       {
-        label: 'Save File',
-        accelerator: process.platform == 'darwin' ? 'Command+S' : 'Crtl+S'
+        label: 'Save',
+        accelerator: process.platform == 'darwin' ? 'Command+S' : 'Crtl+S',
+      },
+      {
+        label: 'Save As',
+        accelerator: process.platform == 'darwin' ? 'Shif+Command+S' : 'Shift+Crtl+S',
+      },
+      {
+        label: 'Open...',
+        accelerator: process.platform == 'darwin' ? 'Command+O' : 'Crtl+O',
+        // click () { loadFile() }
       },
       {
         label: 'Quit',
-        accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Crtl+Q',
-        click(){
-          app.quit();
-        }
+        accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Crtl+Q'
       }
     ]
   },
@@ -22,17 +28,29 @@ const mainMenuTemplate = [
     submenu: [
       {
         label: 'Cut',
-        accelerator: process.platform == 'darwin' ? 'Command+X' : 'Crtl+X'
+        accelerator: process.platform == 'darwin' ? 'Command+X' : 'Crtl+X',
+        selector: "cut:"
       },
       {
         label: 'Copy',
-        accelerator: process.platform == 'darwin' ? 'Command+C' : 'Crtl+C'
-
+        accelerator: process.platform == 'darwin' ? 'Command+C' : 'Crtl+C',
+        selector: "copy:"
       },
       {
         label: 'Paste',
-        accelerator: process.platform == 'darwin' ? 'Command+P' : 'Crtl+P'
-      }
+        accelerator: process.platform == 'darwin' ? 'Command+V' : 'Crtl+V',
+        selector: "paste:"
+      },
+      {
+        label: 'Undo',
+        accelerator: process.platform == 'darwin' ? 'Command+Z' : 'Crtl+Z',
+        selector: "undo:"
+      },
+      {
+        label: 'Redo',
+        accelerator: process.platform == 'darwin' ? 'Command+Y' : 'Crtl+Y',
+        selector: "redo:"
+      },
     ]
   }
 ]
