@@ -1,12 +1,10 @@
-const { app, BrowserWindow, Menu, ipcMain, dialog } = require("electron");
+const { app, BrowserWindow, Menu, wordCount, ipcMain } = require("electron");
 const electron = require("electron");
-const { dialog } = require("electron").remote;
 const ipc = electron.ipcRenderer;
 const path = require("path");
 const url = require("url");
-const fs = require("fs");
 // const ipc = electron.ipcMain
-const mainMenuTemplate = require("./mainMenuTemplate");
+const mainMenuTemplate = require("./src/mainMenuTemplate");
 
 let mainWindow;
 
