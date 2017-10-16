@@ -1,62 +1,61 @@
-const { app } = require('electron')
+const { app } = require("electron");
 
 const mainMenuTemplate = [
   {
-    label: 'File',
+    label: "File",
     submenu: [
       {
-        label: 'Save File',
-        accelerator: process.platform == 'darwin' ? 'Command+S' : 'Crtl+S'
+        label: "Save File",
+        accelerator: process.platform == "darwin" ? "Command+S" : "Crtl+S"
       },
       {
-        label: 'Quit',
-        accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Crtl+Q',
-        click(){
+        label: "Quit",
+        accelerator: process.platform == "darwin" ? "Command+Q" : "Crtl+Q",
+        click() {
           app.quit();
         }
       }
     ]
   },
   {
-    label: 'Edit',
+    label: "Edit",
     submenu: [
       {
-        label: 'Cut',
-        accelerator: process.platform == 'darwin' ? 'Command+X' : 'Crtl+X'
+        label: "Cut",
+        accelerator: process.platform == "darwin" ? "Command+X" : "Crtl+X"
       },
       {
-        label: 'Copy',
-        accelerator: process.platform == 'darwin' ? 'Command+C' : 'Crtl+C'
-
+        label: "Copy",
+        accelerator: process.platform == "darwin" ? "Command+C" : "Crtl+C"
       },
       {
-        label: 'Paste',
-        accelerator: process.platform == 'darwin' ? 'Command+P' : 'Crtl+P'
+        label: "Paste",
+        accelerator: process.platform == "darwin" ? "Command+V" : "Crtl+V"
       }
     ]
   }
-]
+];
 
-if(process.platform == 'darwin'){
+if (process.platform == "darwin") {
   mainMenuTemplate.unshift({});
 }
 
-if(process.env.NODE_ENV !== 'production'){
+if (process.env.NODE_ENV !== "production") {
   mainMenuTemplate.push({
-    label: 'Developer tools',
+    label: "Developer tools",
     submenu: [
       {
-        label: 'Toggle DevTools',
-        accelerator: process.platform == 'darwin' ? 'Command+I' : 'Crtl+I', // keyboard short cut
-        click(item, focusedWindow){
+        label: "Toggle DevTools",
+        accelerator: process.platform == "darwin" ? "Command+I" : "Crtl+I", // keyboard short cut
+        click(item, focusedWindow) {
           focusedWindow.toggleDevTools();
         }
       },
       {
-        role: 'reload' // adding reload option in the dev tools menu
+        role: "reload" // adding reload option in the dev tools menu
       }
     ]
-  })
+  });
 }
 
-module.exports = mainMenuTemplate
+module.exports = mainMenuTemplate;
