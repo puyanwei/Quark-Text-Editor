@@ -1,51 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/prism.css"/>
-    <title>Text Editor</title>
-  </head>
-    <body>
-      <div id="buttonarea">
-        <button id ="load-button"> Load </button>
-        <button id ="save-as-button"> Save As </button>
-        <button id ="save-button"> Save</button>
-        <button id ="syntax-button">Syntax</button>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/prism.css"/>
+  <title>Text Editor</title>
+</head>
+<body>
+  <div id="buttonarea">
+    <button id ="load-button"> Load </button>
+    <button id ="save-as-button"> Save As </button>
+    <button id ="save-button"> Save</button>
+    <button id ="syntax-button">Syntax</button>
+  </div>
 
-      <section class="container">
-        <div class="left-half">
-        </div>
-        <div class="right-half">
-          <pre class="line-numbers"><code class="language-javascript" id="editor" contentEditable=true>function ()</code></pre>
-        </div>
-      </section>
+  <section class="container">
+    <div class="left-half">
+      <button id="tree-dir">Tree Directory</button>
+      <li id="tree">
+      </li>
+    </div>
+    <div class="right-half">
+      <pre class="line-numbers"><code class="language-javascript" id="editor" contentEditable=true>function ()</code></pre>
+    </div>
+  </section>
 
-      <!-- <iframe>
-        <html>
-        <body id="editor" contentEditable = "true"></body>
-        </html>
-      </iframe> -->
+  <!-- <iframe>
+  <html>
+  <body id="editor" contentEditable = "true"></body>
+  </html>
+</iframe> -->
 
-    <script type="text/javascript" src="./readFile.js"></script>
-    <script src="prism.js"></script>
-    <!-- Updating Syntax -->
-    <script>
-    // keypress event hashed out until cursor issues can be resolved.
-    // document.addEventListener("keypress", updateSyntax);
-    var syntaxBtn = document.getElementById("syntax-button");
-    var editor = document.getElementById('editor');
+<script type="text/javascript" src="./readFile.js"></script>
+<script src="prism.js"></script>
+<!-- Updating Syntax -->
+<script>
 
-    syntaxBtn.addEventListener("click", updateSyntax);
+const path = require('path')
+// keypress event hashed out until cursor issues can be resolved.
+// document.addEventListener("keypress", updateSyntax);
+var syntaxBtn = document.getElementById("syntax-button");
+var editor = document.getElementById('editor');
 
-    function updateSyntax(){
-      // targets only the editor element
-      Prism.highlightElement(editor);
-      // targets the whole page
-      // Prism.highlightAll();
-    };
+syntaxBtn.addEventListener("click", updateSyntax);
 
-    </script>
-    </body>
+function updateSyntax(){
+  // targets only the editor element
+  Prism.highlightElement(editor);
+  // targets the whole page
+  // Prism.highlightAll();
+};
+
+const treeBtn = document.getElementById("tree-dir")
+const li = document.getElementById("tree")
+
+treeBtn.addEventListener("click", treeDir);
+
+function treeDir(){
+
+  const folder = './';
+
+  fs.readdir(folder, (err, files) => {
+    files.forEach(file => {
+      console.log(file);
+      tree += `<li> ${file} </li>`
+    });
+    li.innerHTML = tree
+  })
+
+}
+
+
+</script>
+</body>
 </html>

@@ -46,6 +46,10 @@ h1 {
     outline: none;
 }
 
+li {
+  list-style-type: none;
+}
+
 /**:focus {
     outline: none;
 }*/
