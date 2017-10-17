@@ -13,3 +13,8 @@ ipc.on('save-as-file', (event) => {
   const content = selectedEditor.innerHTML
   mainProcess.saveAsFile(content)
 });
+
+ipc.on('save-file', (event) => {
+  const saveContent = selectedEditor.innerHTML
+  mainProcess.saveFile(saveContent)
+})

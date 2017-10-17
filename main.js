@@ -29,6 +29,8 @@ app.on("ready", function() {
   Menu.setApplicationMenu(mainMenu);
 });
 
+const fileName = "Undefined"
+
 
 function openFile () {
   const files = dialog.showOpenDialog(mainWindow, {
@@ -40,15 +42,15 @@ function openFile () {
 
   if (!files) return
 
-  const file = files[0]
-  const content = fs.readFileSync(file).toString()
+  const fileName = files[0]
+  const content = fs.readFileSync(fileName).toString()
 
-  mainWindow.webContents.send('open-file', file, content)
+  mainWindow.webContents.send('open-file', fileName, content)
 }
 
 
 function saveAsFile (content) {
-  const fileName = dialog.showSaveDialog(mainWindow, {
+  const fileSave = dialog.showSaveDialog(mainWindow, {
     title: 'Save HTML Output',
     defaultPath: app.getPath('documents'),
     // filters: [
@@ -56,9 +58,17 @@ function saveAsFile (content) {
     // ]
   })
 
-  if (!fileName) return
+  if (!fileSave) return
+
+  const fileName = fileSave
 
   fs.writeFileSync(fileName, content)
+}
+
+
+function saveFile(content) {
+  fs.writeFileSync(fileName, content)
+  alert("your file was saved")
 }
 
 
@@ -69,7 +79,10 @@ const mainMenuTemplate = [
     submenu: [
       {
         label: "Save",
-        accelerator: process.platform == "darwin" ? "Command+S" : "Crtl+S"
+        accelerator: process.platform == "darwin" ? "Command+S" : "Crtl+S",
+        click() {
+          mainWindow.webContents.send('save-file')
+        }
       },
       {
         label: "Save As",
