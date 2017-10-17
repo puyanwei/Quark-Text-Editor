@@ -21,11 +21,12 @@ describe("application launch", function() {
     }
   });
 
-  it("should save text our editor into a file", function(){
+  xit("should save text our editor into a file", function(){
     return this.app.client
       .waitUntilWindowLoaded()
       // .leftClick('#savebutton')
       // // save filename
+
       // .leftClick('#loadbutton')
       // // load the filename you have saved after
       // .getText('#editor')
@@ -34,5 +35,5 @@ describe("application launch", function() {
   });
 
 
-  
+
 });

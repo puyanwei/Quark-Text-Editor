@@ -27,6 +27,6 @@ describe("application launch", function() {
       .leftClick("#editor")
       .keys("Text editor")
       .getText("#editor")
-      .then(text => expect(text).to.eq("functText editorion ()"));
+      .then(text => expect(text).to.eq("functText editorion()"));
   });
 });
