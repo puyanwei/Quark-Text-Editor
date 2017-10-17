@@ -30,6 +30,38 @@ app.on("ready", function() {
 });
 
 
+function openFile () {
+  const files = dialog.showOpenDialog(mainWindow, {
+    properties: ['openFile'],
+    filters: [
+      {name: 'FileNames', extensions: ['md', 'txt', 'rb', 'js', 'html', 'css']}
+    ]
+  });
+
+  if (!files) return
+
+  const file = files[0]
+  const content = fs.readFileSync(file).toString()
+
+  mainWindow.webContents.send('open-file', file, content)
+}
+
+
+function saveAsFile (content) {
+  const fileName = dialog.showSaveDialog(mainWindow, {
+    title: 'Save HTML Output',
+    defaultPath: app.getPath('documents'),
+    // filters: [
+    //   // { name: 'HTML Files', extensions: ['rb'] }
+    // ]
+  })
+
+  if (!fileName) return
+
+  fs.writeFileSync(fileName, content)
+}
+
+
 
 const mainMenuTemplate = [
   {
@@ -42,7 +74,10 @@ const mainMenuTemplate = [
       {
         label: "Save As",
         accelerator:
-          process.platform == "darwin" ? "Shif+Command+S" : "Shift+Crtl+S"
+          process.platform == "darwin" ? "Shif+Command+S" : "Shift+Crtl+S",
+          click() {
+          mainWindow.webContents.send('save-as-file')
+        }
       },
       {
         label: "Open...",
@@ -109,18 +144,4 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-function openFile () {
-  const files = dialog.showOpenDialog(mainWindow, {
-    properties: ['openFile'],
-    filters: [
-      {name: 'FileNames', extensions: ['md', 'txt', 'rb', 'js', 'html', 'css']}
-    ]
-  });
-
-  if (!files) return
-
-  const file = files[0]
-  const content = fs.readFileSync(file).toString()
-
-  mainWindow.webContents.send('file-opened', file, content)
-}
+exports.saveAsFile = saveAsFile
