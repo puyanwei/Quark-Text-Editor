@@ -68,7 +68,7 @@ function saveAsFile (content) {
 
 function saveFile(content) {
   fs.writeFileSync(fileName, content)
-  alert("your file was saved")
+  alert("Wooooo your file was saved")
 }
 
 
