@@ -21,7 +21,7 @@ describe("application launch", function() {
     }
   });
 
-  it("should enter and show text", function() {
+  xit("should enter and show text", function() {
     return this.app.client
       .waitUntilWindowLoaded()
       .leftClick("#editor")

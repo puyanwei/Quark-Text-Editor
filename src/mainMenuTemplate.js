@@ -1,4 +1,8 @@
-const { app } = require("electron");
+
+const electron = require('electron');
+const {dialog} = require('electron').remote;
+const fs = require('fs')
+const ipc = electron.ipcRenderer
 
 const mainMenuTemplate = [
   {
@@ -15,8 +19,8 @@ const mainMenuTemplate = [
       },
       {
         label: "Open...",
-        accelerator: process.platform == "darwin" ? "Command+O" : "Crtl+O"
-        // click () { loadFile() }
+        accelerator: process.platform == "darwin" ? "Command+O" : "Crtl+O",
+        click() { openFile() }
       },
       {
         label: "Quit",
@@ -77,5 +81,22 @@ if (process.env.NODE_ENV !== "production") {
     ]
   });
 }
+
+function openFile () {
+  const files = dialog.showOpenDialog(mainWindow, {
+    properties: ['openFile'],
+    filters: [
+      {name: 'FileNames', extensions: ['md', 'txt', 'rb', 'js', 'html', 'css']}
+    ]
+  });
+
+  if (!files) return
+
+  const file = files[0]
+  const content = fs.readFileSync(file).toString()
+
+  mainWindow.webContents.send('file-opened', file, content)
+}
+
 
 module.exports = mainMenuTemplate;
