@@ -1,7 +1,7 @@
 const { dialog } = require("electron").remote;
 const fs = require("fs");
 
-let currentFileName;
+
 let saveAsBtn = document.getElementById("save-as-button");
 let saveBtn = document.getElementById("save-button");
 let loadBtn = document.getElementById("load-button");
@@ -10,6 +10,8 @@ let loadBtn = document.getElementById("load-button");
 saveAsBtn.addEventListener("click", saveAsFile);
 loadBtn.addEventListener("click", loadFile);
 saveBtn.addEventListener("click", saveFile);
+
+let currentFileName = "Undefined"
 
 function loadFile() {
   let editor = document.getElementById("editor");
