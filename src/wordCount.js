@@ -1,25 +1,25 @@
-// let wordCountBtn = document.getElementById("word-count");
 document.addEventListener("keydown", characterCount);
 document.addEventListener("keydown", wordCount);
 document.addEventListener("keydown", lineCount);
 
 function characterCount() {
   let text = document.getElementById("editor").innerText;
-  let words = text.split(/\s+/g).length;
+  let characters = text.split("").length;
 
-  document.getElementById("character-counter").innerText = words;
+  document.getElementById("character-counter").innerText = characters;
 }
 
 function wordCount() {
   let text = document.getElementById("editor").innerText;
-  let words = text.split(/\s+/g).length;
+  let words = text.split(/\S+/g).length;
 
   document.getElementById("word-counter").innerText = words;
 }
 
 function lineCount() {
   let text = document.getElementById("editor").innerText;
-  let words = text.split(/\s+/g).length;
+  let lines = text.split(/\n/).length;
+  console.log(lines);
 
-  document.getElementById("line-counter").innerText = words;
+  document.getElementById("line-counter").innerText = lines;
 }
