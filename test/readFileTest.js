@@ -26,7 +26,6 @@ describe("application launch", function() {
     return this.app.client
       .waitUntilWindowLoaded()
       .leftClick('#load-button')
-      .
       .getText('#editor')
       .then(text => expect(text).to.eq('This is a test.'))
   })

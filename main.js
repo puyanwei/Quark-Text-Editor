@@ -7,6 +7,8 @@ const fs = require('fs')
 
 let mainWindow;
 
+
+
 app.on("ready", function() {
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
 
@@ -29,11 +31,14 @@ app.on("ready", function() {
   Menu.setApplicationMenu(mainMenu);
 });
 
-let fileName = "Undefined"
-// function changeFileName (){
-//   let fileName = "Undefined"
-//
-// }
+
+
+
+  let fileName = "Undefined"
+
+  // function changeFileName (theFileName="Undefined"){
+  //   let fileName = theFileName
+  // }
 
 function openFile () {
   const files = dialog.showOpenDialog(mainWindow, {
@@ -162,5 +167,6 @@ if (process.env.NODE_ENV !== "production") {
 
 module.exports = {
   saveAsFile,
-  saveFile
+  saveFile,
+  mainMenuTemplate
 }
