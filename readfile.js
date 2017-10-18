@@ -5,7 +5,7 @@ const ipc = electron.ipcRenderer
 
 
 
-  let currentFileName;
+  let currentFileName = "untitled"
 
   // Buttons
 

@@ -28,41 +28,33 @@
     </div>
   </section>
 
-  <!-- <iframe>
-  <html>
-  <body id="editor" contentEditable = "true"></body>
-  </html>
-</iframe> -->
-
 <script type="text/javascript" src="./readFile.js"></script>
 <script src="prism.js"></script>
 <!-- Updating Syntax -->
 <script>
 const path = require("path");
 // keypress event hashed out until cursor issues can be resolved.
-document.addEventListener("keypress", updateSyntax);
-var syntaxBtn = document.getElementById("syntax-button");
+document.addEventListener("keyup", updateSyntax);
 var editor = document.getElementById("editor");
 // position buttons
 var savePositionBtn = document.getElementById("save-position")
 var restorePositionBtn = document.getElementById("restore-position")
 
-savePositionBtn.addEventListener("click", saveRangePosition);
-restorePositionBtn.addEventListener("click", restoreRangePosition);
+// syntaxBtn.addEventListener("click", updateSyntax);
 
+restorePositionBtn.addEventListener("click", function(e){
+   setCurrentCursorPosition(caretOffset);
+});
 
-syntaxBtn.addEventListener("click", updateSyntax);
 
 function updateSyntax() {
 
-  // saveCaretPosition(editor)
-  saveRangePosition()
-  // syntaxRecog()
-  // targets only the editor element
+  // getCurrentCursorPosition(editor)
+  syntaxRecog()
+  getCaretCharacterOffsetWithin()
   Prism.highlightElement(editor);
-  restoreRangePosition()
-  // restoreRangePosition()
-  // targets the whole page
+  setCurrentCursorPosition(caretOffset)
+  // restoreRangePosition();
   // Prism.highlightAll();
 }
 
@@ -96,67 +88,82 @@ function syntaxRecog(){
     // console.log(languages[fileLang.toString()])
     editor.className = `language-${languages[fileLang.toString()]}`
 }
+//  Cursor setting
+// 
 
-function saveCaretPosition(editor){
-    var selection = window.getSelection();
-    var range = selection.getRangeAt(0);
-    range.setStart( editor, 0 );
-    var len = range.toString().length;
+var caretOffset = 0
 
-    return function restore(){
-        var pos = getTextNodeAtPosition(editor, len);
-        selection.removeAllRanges();
-        var range = new Range();
-        range.setStart(pos.node ,pos.position);
-        selection.addRange(range);
-
+function getCaretCharacterOffsetWithin() {
+    // var caretOffset = 0;
+    var doc = editor.ownerDocument || editor.document;
+    var win = doc.defaultView || doc.parentWindow;
+    var sel;
+    if (typeof win.getSelection != "undefined") {
+        sel = win.getSelection();
+        if (sel.rangeCount > 0) {
+            var range = win.getSelection().getRangeAt(0);
+            var preCaretRange = range.cloneRange();
+            preCaretRange.selectNodeContents(editor);
+            preCaretRange.setEnd(range.endContainer, range.endOffset);
+            caretOffset = preCaretRange.toString().length;
+        }
+    } else if ( (sel = doc.selection) && sel.type != "Control") {
+        var textRange = sel.createRange();
+        var preCaretTextRange = doc.body.createTextRange();
+        preCaretTextRange.moveToElementText(editor);
+        preCaretTextRange.setEndPoint("EndToEnd", textRange);
+        caretOffset = preCaretTextRange.text.length;
     }
+    console.log("CARET log:", caretOffset)
+    return caretOffset;
 }
 
-// function saveCaretPosition(editor){
-//     var selection = window.getSelection();
-//     var range = selection.getRangeAt(0);
-//     range.setStart( editor, 0 );
-//     var len = range.toString().length;
-// }
 
-// function restore(){
-//         var pos = getTextNodeAtPosition(editor, len);
-//         selection.removeAllRanges();
-//         var range = new Range();
-//         range.setStart(pos.node ,pos.position);
-//         selection.addRange(range);
-// }
+function createRange(node, chars, range) {
+    if (!range) {
+        range = document.createRange()
+        range.selectNode(node);
+        range.setStart(node, 0);
+    }
 
-function saveRangePosition()
-  {
-  var range=window.getSelection().getRangeAt(0);
-  var sC=range.startContainer,eC=range.endContainer;
+    if (chars.count === 0) {
+        range.setEnd(node, chars.count);
+    } else if (node && chars.count >0) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            if (node.textContent.length < chars.count) {
+                chars.count -= node.textContent.length;
+            } else {
+                 range.setEnd(node, chars.count);
+                 chars.count = 0;
+            }
+        } else {
+            for (var lp = 0; lp < node.childNodes.length; lp++) {
+                range = createRange(node.childNodes[lp], chars, range);
 
-  A=[];while(sC!==editor){A.push(getNodeIndex(sC));sC=sC.parentNode}
-  B=[];while(eC!==editor){B.push(getNodeIndex(eC));eC=eC.parentNode}
-  
+                if (chars.count === 0) {
+                   break;
+                }
+            }
+        }
+   } 
 
-  window.rp={"sC":A,"sO":range.startOffset,"eC":B,"eO":range.endOffset};
-  // console.log(window.rp)
-  }
+   return range;
+};
 
-  function getNodeIndex(n){var i=0;while(n=n.previousSibling)i++;return i}
+function setCurrentCursorPosition(chars) {
+console.log(caretOffset)
+    if (chars >= 0) {
+        var selection = window.getSelection();
 
-  function restoreRangePosition(){
-  editor.focus()
-  var selection=window.getSelection(),range=selection.getRangeAt(0);
-  var x,C,sC=editor,eC=editor;
+        range = createRange(document.getElementById("editor").parentNode, { count: chars });
 
-  C=rp.sC;x=C.length;while(x--)sC=sC.childNodes[C[x]];
-  C=rp.eC;x=C.length;while(x--)eC=eC.childNodes[C[x]];
-  
-// console.log(rp.s0)find out what sC bug is
-  range.setStart(sC,rp.sO);
-  range.setEnd(eC,rp.eO);
-  selection.removeAllRanges();
-  selection.addRange(range)
-  }
+        if (range) {
+            range.collapse(false);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    }
+};
 
 </script>
 </body>

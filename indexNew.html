@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/prism.css"/>
+  <title>Text Editor</title>
+</head>
+<body>
+  <div id="buttonarea">
+    <button id ="load-button"> Load </button>
+    <button id ="save-as-button"> Save As </button>
+    <button id ="save-button"> Save</button>
+    <button id ="syntax-button">Syntax</button>
+    <button id ="word-count">Count</button>
+    <button id ="save-position">Save Position</button>
+    <button id ="restore-position">Restor Position</button>
+  </div>
+
+  <section class="container">
+    <div class="left-half">
+      <button id="tree-dir">Tree Directory</button>
+      <li id="tree">
+      </li>
+    </div>
+    <div class="right-half">
+      <pre class="line-numbers"><code class="language-javascript" id="editor" onblur="onDivBlur();" onmousedown="return cancelEvent(event);" onclick="return cancelEvent(event);" onmouseup="saveSelection();" onkeyup="saveSelection();" onfocus="restoreSelection();" contentEditable="true">function ()</code></pre>
+    </div>
+
+    <!-- <div id="area" style="width:300px;height:300px;" onblur="onDivBlur();" onmousedown="return cancelEvent(event);" onclick="return cancelEvent(event);" contentEditable="true" onmouseup="saveSelection();" onkeyup="saveSelection();" onfocus="restoreSelection();"></div> -->
+  </section>
+
+  <!-- <iframe>
+  <html>
+  <body id="editor" contentEditable = "true"></body>
+  </html>
+</iframe> -->
+
+<script type="text/javascript" src="./readFile.js"></script>
+<script src="prism.js"></script>
+
+<script>
+const path = require("path");
+// keypress event hashed out until cursor issues can be resolved.
+document.addEventListener("keyup", updateSyntax);
+var syntaxBtn = document.getElementById("syntax-button");
+var editor = document.getElementById("editor");
+// position buttons
+var savePositionBtn = document.getElementById("save-position")
+var restorePositionBtn = document.getElementById("restore-position")
+
+// savePositionBtn.addEventListener("click", saveRangePosition);
+// restorePositionBtn.addEventListener("click", restoreRangePosition);
+
+// document.addEventListener("keypress", getCaretCharacterOffsetWithin);
+syntaxBtn.addEventListener("click", updateSyntax);
+
+function updateSyntax() {
+  saveSelection();
+  restoreSelection();
+  Prism.highlightElement(editor);
+  
+
+}
+var savedRange,isInFocus;
+function saveSelection()
+{
+    if(window.getSelection)//non IE Browsers
+    {
+        savedRange = window.getSelection().getRangeAt(0);
+        console.log(savedRange)
+    }
+    else if(document.selection)//IE
+    { 
+        savedRange = document.selection.createRange();  
+        // console.log(savedRange)
+    } 
+}
+
+function restoreSelection()
+{
+    isInFocus = true;
+    document.getElementById("editor").focus();
+    if (savedRange != null) {
+        if (window.getSelection)//non IE and there is already a selection
+        {
+            var s = window.getSelection();
+            // console.log(s)
+            if (s.rangeCount > 0) 
+                s.removeAllRanges();
+            s.addRange(savedRange);
+        }
+        else if (document.createRange)//non IE and no selection
+        {
+            window.getSelection().addRange(savedRange);
+        }
+        else if (document.selection)//IE
+        {
+            savedRange.select();
+        }
+    }
+}
+//this part onwards is only needed if you want to restore selection onclick
+var isInFocus = false;
+function onDivBlur()
+{
+    isInFocus = false;
+}
+
+function cancelEvent(e)
+{
+    if (isInFocus == false && savedRange != null) {
+        if (e && e.preventDefault) {
+            //alert("FF");
+            e.stopPropagation(); // DOM style (return false doesn't always work in FF)
+            e.preventDefault();
+        }
+        else {
+            window.event.cancelBubble = true;//IE stopPropagation
+        }
+        restoreSelection();
+        return false; // false = IE style
+    }
+}
+</script>
+</body>
+</html>
