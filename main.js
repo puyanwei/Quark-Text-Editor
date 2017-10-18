@@ -30,7 +30,10 @@ app.on("ready", function() {
 });
 
 let fileName = "Undefined"
-
+// function changeFileName (){
+//   let fileName = "Undefined"
+//
+// }
 
 function openFile () {
   const files = dialog.showOpenDialog(mainWindow, {
@@ -68,7 +71,7 @@ function saveAsFile (content) {
 
 function saveFile(content) {
   fs.writeFileSync(fileName, content)
-  alert("Wooooo your file was saved")
+
 }
 
 
@@ -157,7 +160,7 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-exports.module= {
+module.exports = {
   saveAsFile,
   saveFile
 }
