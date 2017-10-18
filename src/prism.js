@@ -169,9 +169,10 @@ var _ = _self.Prism = {
 		}
 	},
 
-	highlightElement: function(element, async, callback) {
+	highlightElement: function(element, sync, callback) {
 		// Find language
 		var language, grammar, parent = element;
+		console.log(element)
 
 		while (parent && !lang.test(parent.className)) {
 			parent = parent.parentNode;
@@ -215,7 +216,7 @@ var _ = _self.Prism = {
 
 		_.hooks.run('before-highlight', env);
 
-		if (async && _self.Worker) {
+		if (sync && _self.Worker) {
 			var worker = new Worker(_.filename);
 
 			worker.onmessage = function(evt) {
