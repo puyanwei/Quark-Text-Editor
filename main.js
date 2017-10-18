@@ -29,7 +29,7 @@ app.on("ready", function() {
   Menu.setApplicationMenu(mainMenu);
 });
 
-const fileName = "Undefined"
+let fileName = "Undefined"
 
 
 function openFile () {
@@ -42,7 +42,7 @@ function openFile () {
 
   if (!files) return
 
-  const fileName = files[0]
+  fileName = files[0]
   const content = fs.readFileSync(fileName).toString()
 
   mainWindow.webContents.send('open-file', fileName, content)
@@ -60,7 +60,7 @@ function saveAsFile (content) {
 
   if (!fileSave) return
 
-  const fileName = fileSave
+  fileName = fileSave
 
   fs.writeFileSync(fileName, content)
 }
@@ -157,4 +157,7 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-exports.saveAsFile = saveAsFile
+exports.module= {
+  saveAsFile,
+  saveFile
+}

@@ -1,5 +1,6 @@
 const electron = require("electron");
 var expect = require("chai").expect;
+const fs = require("fs");
 
 var Application = require("spectron").Application;
 var assert = require("assert");
@@ -21,10 +22,11 @@ describe("application launch", function() {
     }
   });
 
-  xit("should load text from the file into our window", function(){
+  it("should load text from the file into our window", function(){
     return this.app.client
       .waitUntilWindowLoaded()
       .leftClick('#load-button')
+      .
       .getText('#editor')
       .then(text => expect(text).to.eq('This is a test.'))
   })
