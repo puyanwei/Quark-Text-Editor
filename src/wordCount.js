@@ -1,7 +1,9 @@
 // let wordCountBtn = document.getElementById("word-count");
-document.addEventListener("keyup", wordCount);
+document.addEventListener("keydown", wordCount);
 
 function wordCount() {
   let text = document.getElementById("editor").innerText;
-  console.log(text.split(" " && "\n").length);
+  let words = text.split(/\s+/g).length;
+
+  document.getElementById("counter").innerText = words;
 }
