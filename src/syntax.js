@@ -12,7 +12,7 @@ function updateSyntax() {
 
 function syntaxRecog(){
   var fileLang = currentFileName.replace(/.*\./, "")
-  
+
   var languages = { "css": "css",
                     "js": "javascript",
                     "rb": "ruby",
@@ -24,7 +24,7 @@ function syntaxRecog(){
 }
 
 //  Cursor setting
-// 
+//
 
 var caretOffset = 0
 
@@ -79,7 +79,7 @@ function createRange(node, chars, range) {
                 }
             }
         }
-   } 
+   }
 
    return range;
 };
