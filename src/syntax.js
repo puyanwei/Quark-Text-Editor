@@ -1,5 +1,8 @@
 // updates syntax on keyup, also works with keypress
 
+const namez = remote.require('./main')
+
+
 document.addEventListener("keyup", updateSyntax);
 var editor = document.getElementById("editor");
 
@@ -10,9 +13,14 @@ function updateSyntax() {
   setCurrentCursorPosition(caretOffset);
 }
 
+
+
 function syntaxRecog(){
-  var fileLang = currentFileName.replace(/.*\./, "")
-  
+
+  let currentFileNamez = namez.currentFile();
+  // console.log(namez.currentFile())
+  var fileLang = currentFileNamez.replace(/.*\./, "")
+
   var languages = { "css": "css",
                     "js": "javascript",
                     "rb": "ruby",
@@ -24,7 +32,7 @@ function syntaxRecog(){
 }
 
 //  Cursor setting
-// 
+//
 
 var caretOffset = 0
 
@@ -79,7 +87,7 @@ function createRange(node, chars, range) {
                 }
             }
         }
-   } 
+   }
 
    return range;
 };

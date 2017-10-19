@@ -34,13 +34,15 @@ app.on("ready", function() {
 });
 
 
+function currentFile(currentFileName = "Untitled"){
+    fileName = currentFileName
+    return fileName
+}
+// console.log(currentFile();)
 
+  //
+  // let fileName = "Undefined"
 
-  let fileName = "Undefined"
-
-  // function changeFileName (theFileName="Undefined"){
-  //   let fileName = theFileName
-  // }
 
 function openFile () {
   const files = dialog.showOpenDialog(mainWindow, {
@@ -52,7 +54,7 @@ function openFile () {
 
   if (!files) return
 
-  fileName = files[0]
+  fileName = currentFile(files[0])
   const content = fs.readFileSync(fileName).toString()
 
   mainWindow.webContents.send('open-file', fileName, content)
@@ -70,7 +72,7 @@ function saveAsFile (content) {
 
   if (!fileSave) return
 
-  fileName = fileSave
+  fileName = currentFile(fileSave)
 
   fs.writeFileSync(fileName, content)
 }
@@ -170,5 +172,6 @@ if (process.env.NODE_ENV !== "production") {
 module.exports = {
   saveAsFile,
   saveFile,
-  mainMenuTemplate
+  mainMenuTemplate,
+  currentFile
 }

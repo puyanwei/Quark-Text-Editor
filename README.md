@@ -1,6 +1,6 @@
 # PDAF-Text-editor
 
-This app is a simple re-make of atom. Atom is a text editor which has been built specifically for writting code.
+This app is a simple re-make of atom. Atom is a text editor which has been built specifically for writing code.
 
 ## Installation
 
