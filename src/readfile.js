@@ -1,17 +1,7 @@
 const { dialog } = require("electron").remote;
 const fs = require("fs");
 
-
-let saveAsBtn = document.getElementById("save-as-button");
-let saveBtn = document.getElementById("save-button");
-let loadBtn = document.getElementById("load-button");
-// let intervalID = window.setInterval(myCallback, 500);
-
-saveAsBtn.addEventListener("click", saveAsFile);
-loadBtn.addEventListener("click", loadFile);
-saveBtn.addEventListener("click", saveFile);
-
-let currentFileName = "Undefined"
+let currentFileName = "Untitled"
 
 function loadFile() {
   let editor = document.getElementById("editor");
@@ -68,18 +58,4 @@ function saveFile() {
     console.log(currentFileName);
   });
 }
-// module.exports = loadFile
 
-// window.onload = function (){
-//
-//   let btn = document.getElementById("btn");
-//   // let notes = []
-//
-//   btn.addEventListener("click", function(){
-//     let htmlNote = document.getElementById("noteForm").value;
-//     noteList.addNote(htmlNote);
-//     controller.changeView();
-//     // notes.push(newNote)
-//   })
-//
-// }

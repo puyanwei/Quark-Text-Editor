@@ -1,6 +1,8 @@
 /* Pen-specific styles */
 html, body, section {
   height: 100%;
+  overflow: hidden;
+  background-color: #212321
 }
 
 body {
@@ -22,57 +24,53 @@ h1 {
 
 
 footer {
-  position: fixed;
-  background-color: green;
+  position: absolute;
+  color: white;
+  background-color: rgb(48, 48, 47);
   left: 0;
   bottom: 0;
   width: 100%;
   height: 30;
   text-align: center;
-  background-color: red
+  overflow: hidden;
 }
 
 header {
-  position: fixed;
-  background-color: orange;
+  position: absolute;
+  background-color: rgb(48, 48, 47);
+  color: white;
   left: 0;
   top: 0;
   width: 100%;
   height: 30;
   text-align: center;
+  overflow: hidden;
 }
 
 /* Pattern styles */
 .container {
+  position: auto;
   display: flex;
+  overflow: hidden;
 }
 
 .left-half {
-
-  margin-top: 24px;
-  margin-bottom: 24px;
-  margin-top: 24px
   color: #fff;
   flex: 0.4;
   padding: 1rem;
-  margin-bottom: 24px;
-  background-color: grey
+  background-color: grey;
 }
 
 .right-half {
-
-  margin-top: 24px;
-  background-color: grey;
-  margin-bottom: 24px;
-
-
   background-color: #212321;
   flex: 1.6;
   padding: 1rem;
+  overflow-x: scroll;
 }
 
 #editor{
-  height: 100%
+  height: 100%;
+  overflow: scroll;
 }
 
 [contenteditable="true"]:focus {
