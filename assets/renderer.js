@@ -4,11 +4,13 @@ const remote = electron.remote
 const mainProcess = remote.require('./main')
 const selectedEditor = document.querySelector('#editor')
 
+let currentFileName = "untitled"
 
 ipc.on('open-file', (event, fileName, content) => {
   selectedEditor.innerHTML = content
   currentFileName = fileName
   updateSyntax()
+  showFileName()
 });
 
 ipc.on('save-as-file', (event) => {

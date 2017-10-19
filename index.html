@@ -32,13 +32,19 @@
   Word Count: <span id="word-counter">0</span>
   Line Count: <span id=line-counter>0</span>
 </footer>
-
-<script type="text/javascript" src="src/readFile.js"></script>
 <script type="text/javascript" src="src/prism.js"></script>
 <script type="text/javascript" src="src/wordCount.js"></script>
 <script type="text/javascript" src="src/syntax.js"></script>
 <script type="text/javascript" src="src/libTree.js"></script>
 <script type="text/javascript" src="assets/renderer.js"></script>
-<script> document.getElementById("head").innerText = currentFileName</script>
+<script>
+document.getElementById("head").innerText = currentFileName;
+
+function showFileName(){
+  justFileName = currentFileName.replace(/^(.*[\\\/])/, "")
+  document.getElementById("head").innerText = justFileName;
+};
+</script>
+
 </body>
 </html>
