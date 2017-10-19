@@ -27,3 +27,10 @@ As a user of PDAF Text Editor,
 I would like to be able to delete my saved files.
 
 `````
+Creating the app:
+npm run package-mac
+npm run package-win
+npm run package-linux
+
+App will then be located in:
+release-builds/app-name/
