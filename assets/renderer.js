@@ -17,6 +17,7 @@ ipc.on('save-as-file', (event) => {
   const content = selectedEditor.innerText
   mainProcess.saveAsFile(content)
   updateSyntax()
+  showFileName()
 });
 
 ipc.on('file-name', (event, fileName) => {
