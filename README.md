@@ -1,10 +1,30 @@
 # PDAF-Text-editor
 
-This is a code editor desktop app.
+This app is a simple re-make of atom. Atom is a text editor which has been built specifically for writting code.
 
-The aim of this projects was to experience and learn the processes of building a desktop app from scratch.
+## Installation
 
-MVP User Stories
+1. Open command line.
+
+2. Clone this repository by typing: `git clone git@github.com:FreddieCodes/PDAF-Text-editor.git`
+
+3. Go to the root folder of the project and `npm install` to install all the relevant dependancies.
+
+4. Creating the app by running the following:
+`npm run package-mac`
+`npm run package-win`
+`npm run package-linux`
+
+5. The app will then be located in:
+`release-builds/Quark-darwin-x64/`
+
+#Testing
+
+1. Navigate to the root folder of this repo in your command line.
+2. Type in `npm test`.
+
+
+#MVP User Stories
 
 ```
 As a user of PDAF Text Editor,
@@ -15,7 +35,7 @@ I would like to be able to add some text.
 
 ```
 
-Extra Features User Stories
+#Extra Features User Stories
 
 ````
 As a user of PDAF Text Editor,
@@ -48,38 +68,9 @@ I would like to see my root folders be displayed when pressing a button.
 - Chromium
 - HTML
 - CSS
-- Bootstrap
 - Prism JS
-
-## Installation
-Clone this repository by typing in `git clone git@github.com:FreddieCodes/PDAF-Text-editor.git`
-
-Go to the root folder of the project and `npm install` to install all the relevant dependancies.
-
-
-Creating the app:
-`npm run package-mac`
-`npm run package-win`
-`npm run package-linux`
-
-App will then be located in:
-release-builds/Quark-darwin-x64/
-
-
-For testing type in `npm test` in your terminal in the root folder.
 
 
 ## Features
 
 [This section will have a gif'd version of our demo video]
-
-## Quality Control
-
-We challenged ourselves to maintain a high quality standard of coding practices, as well as Agile methodologies during this project.
-- All feature and unit tests passing, good coverage.
-- Consistent variable naming and linting.
-- Small commits and good descriptions.
-- Never working off master branch, always using pull requests.
-- Good planning and organisation throughout, using our [Trello](https://trello.com/b/mFZ3IP8U/build-our-own-program-from-scratch) board.
-- Stand ups in the mornings, retrospectives in the evenings, XP values.
->>>>>>> master
