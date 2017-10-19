@@ -40,15 +40,6 @@ As a user of PDAF Text Editor,
 I would like to see my root folders be displayed when pressing a button.
 
 `````
-<<<<<<< HEAD
-Creating the app:
-npm run package-mac
-npm run package-win
-npm run package-linux
-
-App will then be located in:
-release-builds/app-name/
-=======
 
 ## Tech Stack
 - Electron
@@ -65,9 +56,18 @@ Clone this repository by typing in `git clone git@github.com:FreddieCodes/PDAF-T
 
 Go to the root folder of the project and `npm install` to install all the relevant dependancies.
 
-Double click the PDAF Editor Icon in the root folder to open.
 
-For testing type in `npm test` in the root folder.
+Creating the app:
+`npm run package-mac`
+`npm run package-win`
+`npm run package-linux`
+
+App will then be located in:
+release-builds/Quark-darwin-x64/
+
+
+For testing type in `npm test` in your terminal in the root folder.
+
 
 ## Features
 
