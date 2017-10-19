@@ -1,6 +1,6 @@
-# PDAF-Text-editor
+# Quark-Text-editor
 
-This app is a simple re-make of atom. Atom is a text editor which has been built specifically for writting code.
+This app is a simple re-make of atom. Atom is a text editor which has been built specifically for writing code.
 
 ## Installation
 
@@ -45,7 +45,7 @@ As a user of PDAF Text Editor,
 I would like to be able to save my code on my local machine.
 
 As a user of PDAF Text Editor,
-I would like to be able to load my files and have its coding language be automatically recognized and formatted appropriately.
+I would like to be able to load my files and have its coding language be automatically recognised and formatted appropriately.
 
 As a user of PDAF Text Editor,
 I would like to be able to edit my saved files.
