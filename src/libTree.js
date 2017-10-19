@@ -1,5 +1,6 @@
 const treeBtn = document.getElementById("tree-dir");
 const li = document.getElementById("tree");
+const fs = require('fs')
 
 treeBtn.addEventListener("click", treeDir);
 
@@ -11,7 +12,6 @@ function treeDir() {
     files.forEach(file => {
       // console.log(file);
       tree += `<li> ${file} </li>`
-      console.log(tree)
     });
       li.innerHTML = tree;
   });
