@@ -17,4 +17,5 @@ ipc.on('save-as-file', (event) => {
 ipc.on('save-file', (event) => {
   const saveContent = selectedEditor.innerHTML
   mainProcess.saveFile(saveContent)
+  alert("Wooooo your file was saved")
 })
