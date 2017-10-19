@@ -11,7 +11,7 @@ saveAsBtn.addEventListener("click", saveAsFile);
 loadBtn.addEventListener("click", loadFile);
 saveBtn.addEventListener("click", saveFile);
 
-let currentFileName = "Undefined"
+let currentFileName = "untitled"
 
 function loadFile() {
   let editor = document.getElementById("editor");
