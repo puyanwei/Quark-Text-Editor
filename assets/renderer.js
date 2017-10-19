@@ -16,12 +16,12 @@ ipc.on('open-file', (event, fileName, content) => {
 ipc.on('save-as-file', (event) => {
   const content = selectedEditor.innerText
   mainProcess.saveAsFile(content)
-  updateSyntax()
-  showFileName()
 });
 
 ipc.on('file-name', (event, fileName) => {
   currentFileName = fileName
+  updateSyntax()
+  showFileName()
   console.log(currentFileName)
 })
 
