@@ -1,4 +1,8 @@
 /node_modules
+<<<<<<< HEAD
 /bower_components
 /release-builds
+=======
+bower_components
+>>>>>>> master
 .DS_Store
