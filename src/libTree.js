@@ -5,12 +5,15 @@ treeBtn.addEventListener("click", treeDir);
 
 function treeDir() {
   const folder = "./";
+  var tree = ''
 
   fs.readdir(folder, (err, files) => {
     files.forEach(file => {
-      console.log(file);
-      tree += `<li> ${file} </li>`;
+      // console.log(file);
+      tree += `<li> ${file} </li>`
+      console.log(tree)
     });
-    li.innerHTML = tree;
+      li.innerHTML = tree;
   });
+
 }
