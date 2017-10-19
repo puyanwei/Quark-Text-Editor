@@ -1,7 +1,7 @@
 const { dialog } = require("electron").remote;
 const fs = require("fs");
 
-let currentFileName = "Untitled"
+let currentFileName = "untitled"
 
 function loadFile() {
   let editor = document.getElementById("editor");
@@ -58,4 +58,3 @@ function saveFile() {
     console.log(currentFileName);
   });
 }
-

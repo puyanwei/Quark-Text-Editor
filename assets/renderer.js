@@ -8,11 +8,13 @@ const selectedEditor = document.querySelector('#editor')
 ipc.on('open-file', (event, fileName, content) => {
   selectedEditor.innerHTML = content
   currentFileName = fileName
+  updateSyntax()
 });
 
 ipc.on('save-as-file', (event) => {
   const content = selectedEditor.innerText
   mainProcess.saveAsFile(content)
+  updateSyntax()
 });
 
 ipc.on('file-name', (event, fileName) => {
