@@ -1,6 +1,6 @@
 document.addEventListener("keydown", characterCount);
 document.addEventListener("keydown", wordCount);
-document.addEventListener("keydown", lineCount);
+document.addEventListener("keypress", lineCount);
 
 function characterCount() {
   let text = document.getElementById("editor").innerText;

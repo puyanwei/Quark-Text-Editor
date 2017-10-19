@@ -72,7 +72,10 @@ function saveAsFile (content) {
 
   fileName = fileSave
 
+  mainWindow.webContents.send('file-name', fileName)
+
   fs.writeFileSync(fileName, content)
+
 }
 
 
