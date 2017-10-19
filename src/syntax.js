@@ -10,6 +10,8 @@ function updateSyntax() {
   // targets only the editor element
   // Prism.highlightElement(editor);
 
+  // var curserPosition = editor.getBoundingClientRect()
+  // console.log(curserPosition)
   syntaxRecog()
   // targets the whole page
   Prism.highlightAll();
