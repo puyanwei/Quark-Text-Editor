@@ -63,7 +63,7 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: hsl(30, 20%, 50%);
+	color: rgb(124, 123, 123);
 }
 
 .token.punctuation {
@@ -80,7 +80,7 @@ pre[class*="language-"] {
 .token.number,
 .token.constant,
 .token.symbol {
-	color: hsl(350, 40%, 70%);
+	color: hsl(349, 75%, 43%);
 }
 
 .token.selector,
@@ -89,7 +89,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-	color: hsl(75, 70%, 60%);
+	color: hsl(118, 59%, 47%);
 }
 
 .token.operator,
@@ -98,13 +98,13 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-	color: hsl(40, 90%, 60%);
+	color: hsl(40, 74%, 53%);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: hsl(350, 40%, 70%);
+	color: hsl(287, 94%, 68%);
 }
 
 .token.regex,

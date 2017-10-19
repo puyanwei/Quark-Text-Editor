@@ -55,10 +55,10 @@ header {
 }
 
 .left-half {
-  color: #fff;
+  background-color: #222429;
+  color: rgb(235, 199, 0);
   flex: 0.4;
   padding: 1rem;
-  background-color: grey;
 }
 
 .right-half {
