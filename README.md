@@ -56,9 +56,18 @@ Clone this repository by typing in `git clone git@github.com:FreddieCodes/PDAF-T
 
 Go to the root folder of the project and `npm install` to install all the relevant dependancies.
 
-Double click the PDAF Editor Icon in the root folder to open.
 
-For testing type in `npm test` in the root folder.
+Creating the app:
+`npm run package-mac`
+`npm run package-win`
+`npm run package-linux`
+
+App will then be located in:
+release-builds/Quark-darwin-x64/
+
+
+For testing type in `npm test` in your terminal in the root folder.
+
 
 ## Features
 
@@ -73,3 +82,4 @@ We challenged ourselves to maintain a high quality standard of coding practices,
 - Never working off master branch, always using pull requests.
 - Good planning and organisation throughout, using our [Trello](https://trello.com/b/mFZ3IP8U/build-our-own-program-from-scratch) board.
 - Stand ups in the mornings, retrospectives in the evenings, XP values.
+>>>>>>> master
