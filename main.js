@@ -98,9 +98,9 @@ const mainMenuTemplate = [
         }
       },
       {
-        label: "Save As",
+        label: "Save As...?",
         accelerator:
-          process.platform == "darwin" ? "Shif+Command+S" : "Shift+Crtl+S",
+          process.platform == "darwin" ? "Shift+Command+S" : "Shift+Crtl+S",
           click() {
           mainWindow.webContents.send('save-as-file')
         }
@@ -111,7 +111,7 @@ const mainMenuTemplate = [
         click() { openFile() }
       },
       {
-        label: "Quit",
+        label: "Rage Quit",
         accelerator: process.platform == "darwin" ? "Command+Q" : "Crtl+Q"
       }
     ]
@@ -120,12 +120,12 @@ const mainMenuTemplate = [
     label: "Edit",
     submenu: [
       {
-        label: "Cut",
+        label: "Cut it",
         accelerator: process.platform == "darwin" ? "Command+X" : "Crtl+X",
         selector: "cut:"
       },
       {
-        label: "Copy",
+        label: "Lazy copying",
         accelerator: process.platform == "darwin" ? "Command+C" : "Crtl+C",
         selector: "copy:"
       },
@@ -135,14 +135,30 @@ const mainMenuTemplate = [
         selector: "paste:"
       },
       {
-        label: "Undo",
+        label: "Undo your mistake",
         accelerator: process.platform == "darwin" ? "Command+Z" : "Crtl+Z",
         selector: "undo:"
       },
       {
-        label: "Redo",
+        label: "Redo what your thought was a mistake",
         accelerator: process.platform == "darwin" ? "Command+Y" : "Crtl+Y",
         selector: "redo:"
+      }
+    ]
+  },
+  {
+    label: "Duck Memes",
+    submenu: [
+      {
+        label: "Yeah right...",
+      }
+    ]
+  },
+  {
+    label: "Quack?",
+    submenu: [
+      {
+        label: "We just love ducks",
       }
     ]
   }
