@@ -5,7 +5,7 @@ const fs = require('fs')
 // const ipc = electron.ipcMain
 // const mainMenuTemplate = require("./src/mainMenuTemplate");
 
-// process.env.NODE_ENV = 'production'
+process.env.NODE_ENV = 'production'
 
 let mainWindow;
 
@@ -112,7 +112,10 @@ const mainMenuTemplate = [
       },
       {
         label: "Rage Quit",
-        accelerator: process.platform == "darwin" ? "Command+Q" : "Crtl+Q"
+        accelerator: process.platform == "darwin" ? "Command+Q" : "Crtl+Q",
+        click(){
+          app.quit();
+        }
       }
     ]
   },

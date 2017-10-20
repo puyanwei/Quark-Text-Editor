@@ -5,7 +5,7 @@ const fs = require('fs')
 treeBtn.addEventListener("click", treeDir);
 
 function treeDir() {
-  const folder = "./";
+  const folder = "./Users/main/Desktop/Makers/";
   var tree = ''
 
   fs.readdir(folder, (err, files) => {
