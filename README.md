@@ -6,7 +6,7 @@ This app is a simple re-make of atom. Atom is a text editor which has been built
 
 1. Open command line.
 
-2. Clone this repository by typing: `git clone git@github.com:FreddieCodes/PDAF-Text-editor.git`
+2. Clone this repository by typing: `git clone https://github.com/FreddieCodes/Quark-Text-editor`
 
 3. Go to the root folder of the project and `npm install` to install all the relevant dependancies.
 
@@ -27,10 +27,10 @@ This app is a simple re-make of atom. Atom is a text editor which has been built
 #MVP User Stories
 
 ```
-As a user of PDAF Text Editor,
+As a user of Quark Text Editor,
 I would like to be able to open the programme.
 
-As a user of PDAF Text Editor,
+As a user of Quark Text Editor,
 I would like to be able to add some text.
 
 ```
@@ -38,25 +38,25 @@ I would like to be able to add some text.
 #Extra Features User Stories
 
 ````
-As a user of PDAF Text Editor,
+As a user of Quark Text Editor,
 I would like to write text and have it automatically formatted into code live.
 
-As a user of PDAF Text Editor,
+As a user of Quark Text Editor,
 I would like to be able to save my code on my local machine.
 
-As a user of PDAF Text Editor,
+As a user of Quark Text Editor,
 I would like to be able to load my files and have its coding language be automatically recognised and formatted appropriately.
 
-As a user of PDAF Text Editor,
+As a user of Quark Text Editor,
 I would like to be able to edit my saved files.
 
-As a user of PDAF Text Editor,
+As a user of Quark Text Editor,
 I would like to be able to delete my saved files.
 
-As a user of PDAF Text Editor,
+As a user of Quark Text Editor,
 I would like to see character, word and line counts shown updated live as I type.
 
-As a user of PDAF Text Editor,
+As a user of Quark Text Editor,
 I would like to see my root folders be displayed when pressing a button.
 
 `````
