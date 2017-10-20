@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/prism.css">
-  <!-- <link rel="stylesheet" href="./styles/bootstrap.min.css"> -->
   <title>Quark</title>
 </head>
 <body>
@@ -37,14 +36,6 @@
 <script type="text/javascript" src="src/syntax.js"></script>
 <script type="text/javascript" src="src/libTree.js"></script>
 <script type="text/javascript" src="assets/renderer.js"></script>
-<script>
-document.getElementById("head").innerText = currentFileName;
-
-function showFileName(){
-  justFileName = currentFileName.replace(/^(.*[\\\/])/, "")
-  document.getElementById("head").innerText = justFileName;
-};
-</script>
-
+<script type="text/javascript" src="src/fileName.js"></script>
 </body>
 </html>
