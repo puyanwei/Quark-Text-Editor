@@ -1,8 +1,8 @@
-# PDAF-Text-editor
+# Quark Text Editor
 
 This is our text editor desktop app for coding.
 
-The aim of this projects was to experience and learn the processes of building a desktop app from scratch.
+The aim of this project was to experience and learn the processes of building a desktop app from scratch.
 
 ![Alt Text](https://github.com/puyanwei/Quark-Text-editor/blob/master/assets/demo.gif)
 
@@ -30,7 +30,7 @@ As a user of Quark Editor,
 I would like to be able to save my code on my local machine.
 
 As a user of Quark Editor,
-I would like to be able to load my files and have its coding language be automatically recognized and formatted appropriately.
+I would like to be able to load my files and have its coding language be automatically recognised and formatted appropriately.
 
 As a user of Quark Editor,
 I would like to be able to edit my saved files.
@@ -43,7 +43,6 @@ I would like to see character, word and line counts shown updated live as I type
 
 As a user of Quark Editor,
 I would like to see my root folders be displayed when pressing a button.
-
 `````
 
 ## Tech Stack
@@ -57,7 +56,7 @@ I would like to see my root folders be displayed when pressing a button.
 - Prism JS
 
 ## Installation
-Clone this repository by typing in `git clone git@github.com:FreddieCodes/PDAF-Text-editor.git`
+Clone this repository by typing in `git clone git@github.com:puyanwei/Quark-Text-editor.git`
 
 Go to the root folder of the project and `npm install` to install all the relevant dependancies.
 
