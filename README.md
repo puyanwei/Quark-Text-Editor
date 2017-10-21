@@ -2,6 +2,10 @@
 
 This app is a simple re-make of atom. Atom is a text editor which has been built specifically for writing code.
 
+This was a 2 week final project by [abitravers89](https://github.com/abitravers1989), [david-div](https://www.github.com/david-div),
+[FreddieCodes](https://github.com/freddiecodes) and
+[puyanwei](https://github.com/puyanwei)
+
 ## Installation
 
 1. Open command line.
@@ -73,4 +77,4 @@ I would like to see my root folders be displayed when pressing a button.
 
 ## Features
 
-[This section will have a gif'd version of our demo video]
+![Alt Text](https://github.com/freddiecodes/Quark-Text-editor/blob/master/assets/demo.gif)
