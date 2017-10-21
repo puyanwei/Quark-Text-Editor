@@ -6,8 +6,7 @@
   "scripts": {
     "test": "mocha",
     "start": "electron .",
-    "package-mac":
-      "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds"
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds"
   },
   "repository": {
     "type": "git",
@@ -25,5 +24,8 @@
     "mocha": "^4.0.1",
     "spectron": "^3.7.2",
     "walk": "^2.3.9"
+  },
+  "dependencies": {
+    "electron-packager": "^9.1.0"
   }
 }

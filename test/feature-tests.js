@@ -43,14 +43,6 @@ describe("application launch", function() {
       .then(text => expect(text).to.eq("Text editor"));
   });
 
-  // it("should load text from the file into our window", function(){
-  //   return this.app.client
-  //     .waitUntilWindowLoaded()
-  //     .leftClick('#load-button')
-  //     .getText('#editor')
-  //     .then(text => expect(text).to.eq('This is a test.'))
-  // })
-
   //  it ("should add line numbers to the text", function(){
   //    return this.app.client
   //     .waitUntilWindowLoaded()
