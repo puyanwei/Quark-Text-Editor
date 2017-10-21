@@ -1,66 +1,45 @@
-# Quark-Text-editor
+# PDAF-Text-editor
 
-This app is a simple re-make of atom. Atom is a text editor which has been built specifically for writing code.
+This is a text editor desktop app for coding.
+
+The aim of this projects was to experience and learn the processes of building a desktop app from scratch.
 
 This was a 2 week final project by [abitravers89](https://github.com/abitravers1989), [david-div](https://www.github.com/david-div),
 [FreddieCodes](https://github.com/freddiecodes) and
 [puyanwei](https://github.com/puyanwei)
 
-## Installation
-
-1. Open command line.
-
-2. Clone this repository by typing: `git clone https://github.com/FreddieCodes/Quark-Text-editor`
-
-3. Go to the root folder of the project and `npm install` to install all the relevant dependancies.
-
-4. Creating the app by running the following:
-`npm run package-mac`
-`npm run package-win`
-`npm run package-linux`
-
-5. The app will then be located in:
-`release-builds/Quark-darwin-x64/`
-
-#Testing
-
-1. Navigate to the root folder of this repo in your command line.
-2. Type in `npm test`.
-
-
-#MVP User Stories
+User Stories for the Minimum Viable Product
 
 ```
-As a user of Quark Text Editor,
+As a user of Quark Editor,
 I would like to be able to open the programme.
 
-As a user of Quark Text Editor,
+As a user of Quark Editor,
 I would like to be able to add some text.
-
 ```
 
-#Extra Features User Stories
+User Stories Features
 
 ````
-As a user of Quark Text Editor,
+As a user of Quark Editor,
 I would like to write text and have it automatically formatted into code live.
 
-As a user of Quark Text Editor,
+As a user of Quark Editor,
 I would like to be able to save my code on my local machine.
 
-As a user of Quark Text Editor,
-I would like to be able to load my files and have its coding language be automatically recognised and formatted appropriately.
+As a user of Quark Editor,
+I would like to be able to load my files and have its coding language be automatically recognized and formatted appropriately.
 
-As a user of Quark Text Editor,
+As a user of Quark Editor,
 I would like to be able to edit my saved files.
 
-As a user of Quark Text Editor,
+As a user of Quark Editor,
 I would like to be able to delete my saved files.
 
-As a user of Quark Text Editor,
+As a user of Quark Editor,
 I would like to see character, word and line counts shown updated live as I type.
 
-As a user of Quark Text Editor,
+As a user of Quark Editor,
 I would like to see my root folders be displayed when pressing a button.
 
 `````
@@ -72,9 +51,32 @@ I would like to see my root folders be displayed when pressing a button.
 - Chromium
 - HTML
 - CSS
+- Bootstrap
 - Prism JS
 
+## Installation
+Clone this repository by typing in `git clone git@github.com:FreddieCodes/PDAF-Text-editor.git`
+
+Go to the root folder of the project and `npm install` to install all the relevant dependancies.
+
+Create the app by typing the following: `npm run package-mac`
+
+The app will then be located in: release-builds/Quark-darwin-x64/
+
+Double click the Quark Editor Icon in the root folder to open.
+
+For testing type in `npm test` in the root folder.
 
 ## Features
 
-![Alt Text](https://github.com/freddiecodes/Quark-Text-editor/blob/master/assets/demo.gif)
+![Alt Text](https://github.com/puyanwei/Quark-Text-editor/blob/master/assets/demo.gif)
+
+## Quality Control
+
+We challenged ourselves to maintain a high quality standard of coding practices, as well as Agile methodologies during this project.
+- All feature and unit tests passing, good coverage.
+- Consistent variable naming and linting.
+- Small commits and good descriptions.
+- Never working off master branch, always using pull requests.
+- Good planning and organisation throughout, using our [Trello](https://trello.com/b/mFZ3IP8U/build-our-own-program-from-scratch) board.
+- Stand ups in the mornings, retrospectives in the evenings, XP values.
