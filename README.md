@@ -1,8 +1,10 @@
 # PDAF-Text-editor
 
-This is a text editor desktop app for coding.
+This is our text editor desktop app for coding.
 
 The aim of this projects was to experience and learn the processes of building a desktop app from scratch.
+
+![Alt Text](https://github.com/puyanwei/Quark-Text-editor/blob/master/assets/demo.gif)
 
 This was a 2 week final project by [abitravers89](https://github.com/abitravers1989), [david-div](https://www.github.com/david-div),
 [FreddieCodes](https://github.com/freddiecodes) and
@@ -68,8 +70,13 @@ Double click the Quark Editor Icon in the root folder to open.
 For testing type in `npm test` in the root folder.
 
 ## Features
-
-![Alt Text](https://github.com/puyanwei/Quark-Text-editor/blob/master/assets/demo.gif)
+- Opens the app using the icon.
+- Text can be written and saved with a coding extension name.
+- Syntax updates on the fly once coding language is specified after saving.
+- The library tree button shows the current directory and its files.
+- The toolbar shows the name of the current file edited, if it has been loaded or saved.
+- The footer shows the character, word and line count live as you type.
+- Ability to copy and paste, and use keyboard shortcuts.
 
 ## Quality Control
 
