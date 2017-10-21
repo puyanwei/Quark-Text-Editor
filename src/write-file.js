@@ -11,7 +11,7 @@ window.onload = function() {
 
     dialog.showSaveDialog(filename => {
       if (filename === undefined) {
-        console.log("You didn't save the file");
+        alert("You didn't save the file");
         return;
       }
 

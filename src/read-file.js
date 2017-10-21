@@ -1,25 +1,24 @@
 const { dialog } = require("electron").remote;
 const fs = require("fs");
 
-let currentFileName = "Untitled"
+let currentFileName = "Untitled";
 
 function loadFile() {
   let editor = document.getElementById("editor");
 
   dialog.showOpenDialog(fileNames => {
     if (fileNames[0] === undefined) {
-      console.log("No files were selected");
+      alert("No files were selected");
       return;
     }
 
     currentFileName = fileNames[0];
-    console.log(currentFileName);
 
     fs.readFile(fileNames[0], "utf8", (err, data) => {
       if (err) {
         return alert("An arror occured reading the file :");
       }
-      console.log("the content of the file is: " + data);
+      alert("the content of the file is: " + data);
       editor.innerText = data;
       updateSyntax();
     });
@@ -32,7 +31,7 @@ function saveAsFile() {
 
   dialog.showSaveDialog(fileName => {
     if (fileName === undefined) {
-      console.log("You didn't save the file");
+      alert("You didn't save the file");
       return;
     }
 
@@ -55,6 +54,5 @@ function saveFile() {
       alert("An error occured creating the file " + err.message);
     }
     alert("The file has been succesfully saved");
-    console.log(currentFileName);
   });
 }
