@@ -3,7 +3,7 @@ const { dialog } = require("electron").remote;
 const fs = require("fs");
 const ipc = electron.ipcRenderer;
 
-const mainMenuTemplate = [
+const mainMenu = [
   {
     label: "File",
     submenu: [
@@ -62,11 +62,11 @@ const mainMenuTemplate = [
 ];
 
 if (process.platform == "darwin") {
-  mainMenuTemplate.unshift({});
+  mainMenu.unshift({});
 }
 
 if (process.env.NODE_ENV !== "production") {
-  mainMenuTemplate.push({
+  mainMenu.push({
     label: "Developer tools",
     submenu: [
       {
@@ -102,4 +102,4 @@ function openFile() {
   mainWindow.webContents.send("file-opened", file, content);
 }
 
-module.exports = mainMenuTemplate;
+module.exports = mainMenu;

@@ -21,6 +21,19 @@ describe("application launch", function() {
     }
   });
 
+  it("loads a window", function() {
+    return this.app.client.getWindowCount().then(function(count) {
+      expect(count).to.eq(1);
+    });
+  });
+
+  it("the title shows 'Quark Text Editor'", function() {
+    return this.app.client
+      .waitUntilWindowLoaded()
+      .getTitle()
+      .then(text => expect(text).to.eq("Quark Text Editor"));
+  });
+
   it("should enter and show text", function() {
     return this.app.client
       .waitUntilWindowLoaded()
