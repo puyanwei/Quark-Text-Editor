@@ -1,5 +1,3 @@
-// updates syntax on keyup, also works with keypress
-
 document.addEventListener("keyup", updateSyntax);
 var editor = document.getElementById("editor");
 
