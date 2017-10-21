@@ -1,15 +1,9 @@
-const { app, BrowserWindow, Menu, ipcMain, dialog} = require("electron");
+const { app, BrowserWindow, Menu, ipcMain, dialog } = require("electron");
 const path = require("path");
 const url = require("url");
-const fs = require('fs')
-// const ipc = electron.ipcMain
-// const mainMenuTemplate = require("./src/mainMenuTemplate");
-
-// process.env.NODE_ENV = 'production'
+const fs = require("fs");
 
 let mainWindow;
-
-
 
 app.on("ready", function() {
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
@@ -33,58 +27,52 @@ app.on("ready", function() {
   Menu.setApplicationMenu(mainMenu);
 });
 
+let fileName = "Undefined";
 
+// function changeFileName (theFileName="Undefined"){
+//   let fileName = theFileName
+// }
 
-
-  let fileName = "Undefined"
-
-  // function changeFileName (theFileName="Undefined"){
-  //   let fileName = theFileName
-  // }
-
-function openFile () {
+function openFile() {
   const files = dialog.showOpenDialog(mainWindow, {
-    properties: ['openFile'],
+    properties: ["openFile"],
     filters: [
-      {name: 'FileNames', extensions: ['md', 'txt', 'rb', 'js', 'html', 'css']}
+      {
+        name: "FileNames",
+        extensions: ["md", "txt", "rb", "js", "html", "css"]
+      }
     ]
   });
 
-  if (!files) return
+  if (!files) return;
 
-  fileName = files[0]
-  const content = fs.readFileSync(fileName).toString()
+  fileName = files[0];
+  const content = fs.readFileSync(fileName).toString();
 
-  mainWindow.webContents.send('open-file', fileName, content)
+  mainWindow.webContents.send("open-file", fileName, content);
 }
 
-
-function saveAsFile (content) {
+function saveAsFile(content) {
   const fileSave = dialog.showSaveDialog(mainWindow, {
-    title: 'Save HTML Output',
-    defaultPath: app.getPath('documents'),
+    title: "Save HTML Output",
+    defaultPath: app.getPath("documents")
     // filters: [
     //   // { name: 'HTML Files', extensions: ['rb'] }
     // ]
-  })
+  });
 
-  if (!fileSave) return
+  if (!fileSave) return;
 
-  fileName = fileSave
+  fileName = fileSave;
 
-  mainWindow.webContents.send('file-name', fileName)
+  mainWindow.webContents.send("file-name", fileName);
 
-  fs.writeFileSync(fileName, content)
-
+  fs.writeFileSync(fileName, content);
 }
-
 
 function saveFile(content) {
-  fs.writeFileSync(fileName, content)
-
+  fs.writeFileSync(fileName, content);
 }
-
-
 
 const mainMenuTemplate = [
   {
@@ -94,21 +82,23 @@ const mainMenuTemplate = [
         label: "Save",
         accelerator: process.platform == "darwin" ? "Command+S" : "Crtl+S",
         click() {
-          mainWindow.webContents.send('save-file')
+          mainWindow.webContents.send("save-file");
         }
       },
       {
         label: "Save As...?",
         accelerator:
           process.platform == "darwin" ? "Shift+Command+S" : "Shift+Crtl+S",
-          click() {
-          mainWindow.webContents.send('save-as-file')
+        click() {
+          mainWindow.webContents.send("save-as-file");
         }
       },
       {
         label: "Open...",
         accelerator: process.platform == "darwin" ? "Command+O" : "Crtl+O",
-        click() { openFile() }
+        click() {
+          openFile();
+        }
       },
       {
         label: "Rage Quit",
@@ -150,7 +140,7 @@ const mainMenuTemplate = [
     label: "Duck Memes",
     submenu: [
       {
-        label: "Yeah right...",
+        label: "Yeah right..."
       }
     ]
   },
@@ -158,7 +148,7 @@ const mainMenuTemplate = [
     label: "Quack?",
     submenu: [
       {
-        label: "We just love ducks",
+        label: "We just love ducks"
       }
     ]
   }
@@ -190,4 +180,4 @@ module.exports = {
   saveAsFile,
   saveFile,
   mainMenuTemplate
-}
+};

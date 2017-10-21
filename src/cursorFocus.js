@@ -1,4 +1,4 @@
-var div = document.getElementById("editor");
+var editor = document.getElementById("editor");
 setTimeout(function() {
-  div.focus();
+  editor.focus();
 }, 0);

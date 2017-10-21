@@ -1,8 +1,10 @@
 /* Pen-specific styles */
-html, body, section {
+html,
+body,
+section {
   height: 100%;
   overflow: hidden;
-  background-color: #212321
+  background-color: #212321;
 }
 
 body {
@@ -21,7 +23,6 @@ h1 {
   font-size: 1.75rem;
   margin: 0 0 0.75rem 0;
 }
-
 
 footer {
   position: absolute;
@@ -68,13 +69,14 @@ header {
   overflow-x: scroll;
 }
 
-#editor{
+#editor {
   height: 100%;
   overflow: scroll;
+  padding-left: 1px;
 }
 
 [contenteditable="true"]:focus {
-    outline: none;
+  outline: none;
 }
 
 li {
