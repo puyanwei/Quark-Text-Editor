@@ -8,7 +8,6 @@ section {
 }
 
 body {
-  /*color: #fff;*/
   font-family: sans-serif;
   font-size: 1rem;
   line-height: 150%;
@@ -48,7 +47,6 @@ header {
   overflow: hidden;
 }
 
-/* Pattern styles */
 .container {
   position: auto;
   display: flex;

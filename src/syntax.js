@@ -45,7 +45,6 @@ function getCaretCharacterOffsetWithin() {
     preCaretTextRange.setEndPoint("EndToEnd", textRange);
     caretOffset = preCaretTextRange.text.length;
   }
-  console.log("CARET log:", caretOffset);
   return caretOffset;
 }
 
@@ -81,7 +80,6 @@ function createRange(node, chars, range) {
 }
 
 function setCurrentCursorPosition(chars) {
-  console.log(caretOffset);
   if (chars >= 0) {
     var selection = window.getSelection();
 

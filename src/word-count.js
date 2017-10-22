@@ -1,18 +1,20 @@
-document.addEventListener("keydown", characterCount);
-document.addEventListener("keydown", wordCount);
-document.addEventListener("keydown", lineCount);
+setInterval(() => {
+  characterCount();
+  wordCount();
+  lineCount();
+}, 100);
 
 function characterCount() {
   let text = document.getElementById("editor").innerText;
   let characters = text.split("").length;
-
+  console.log(characters);
   document.getElementById("character-counter").innerText = characters;
 }
 
 function wordCount() {
   let text = document.getElementById("editor").innerText;
   let words = text.split(/\S+/g).length;
-
+  console.log(words);
   document.getElementById("word-counter").innerText = words;
 }
 

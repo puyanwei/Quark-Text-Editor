@@ -51,6 +51,11 @@ describe("application launch", function() {
       .then(text => expect(text).to.include("main.js"));
   });
 });
+
+// it("should count the number of words correctly", function(){
+//
+// })
+
 //  it ("should add line numbers to the text", function(){
 //    return this.app.client
 //     .waitUntilWindowLoaded()
