@@ -6,7 +6,10 @@ setInterval(() => {
 
 function characterCount() {
   let text = document.getElementById("editor").innerText;
-  let characters = text.split("").length;
+  let characters = text.split("").length - 1;
+  if (characters < 0) {
+    characters = 0;
+  }
   document.getElementById("character-counter").innerText = characters;
 }
 

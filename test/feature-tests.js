@@ -21,11 +21,11 @@ describe("application launch", function() {
   //   }
   // });
 
-  it("loads a window", function() {
-    return this.app.client
-      .getWindowCount()
-      .then(count => expect(count).to.eq(1));
-  });
+  // it("loads a window", function() {
+  //   return this.app.client
+  //     .getWindowCount()
+  //     .then(count => expect(count).to.eq(1));
+  // });
 
   //
   //   it("the title shows 'Quark Text Editor'", function() {
@@ -56,9 +56,9 @@ describe("application launch", function() {
     return this.app.client
       .waitUntilWindowLoaded()
       .leftClick("#editor")
-      .keys("the number of characters should be 37");
-    var text = window.getText("#editor");
-    console.log("THIS IS TEXT", text);
+      .keys("the number of characters should be 37")
+      .getText("#editor");
+    console.log(text);
     expect(text.split("").length).to.eq(33);
   });
 });
