@@ -57,30 +57,7 @@ describe("application launch", function() {
       .waitUntilWindowLoaded()
       .leftClick("#editor")
       .keys("the number of characters should be 37")
-      .getText("#editor");
-    console.log(text);
-    expect(text.split("").length).to.eq(33);
+      .getText("#editor")
+      .then(text => expect(text.split("").length).to.eq(37));
   });
 });
-//  it ("should add line numbers to the text", function(){
-//    return this.app.client
-//     .waitUntilWindowLoaded()
-//     .leftClick('#editor')
-//     .keys('function()')
-//     .leftClick("#syntax-button")
-//     .getText('#editor')
-//     .then(text => expect(text).to.eq())
-//  });
-
-// it("should save text our editor into a file", function(){
-//   return this.app.client
-//     .waitUntilWindowLoaded()
-// .leftClick('#savebutton')
-// // save filename
-
-// .leftClick('#loadbutton')
-// // load the filename you have saved after
-// .getText('#editor')
-// // check that the text in editor still match
-// .then(text => expect(text).to.eq('This is a test.'))
-// });
