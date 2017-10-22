@@ -43,26 +43,33 @@ describe("application launch", function() {
       .then(text => expect(text).to.eq("Text editor"));
   });
 
-  //  it ("should add line numbers to the text", function(){
-  //    return this.app.client
-  //     .waitUntilWindowLoaded()
-  //     .leftClick('#editor')
-  //     .keys('function()')
-  //     .leftClick("#syntax-button")
-  //     .getText('#editor')
-  //     .then(text => expect(text).to.eq())
-  //  });
-
-  // it("should save text our editor into a file", function(){
-  //   return this.app.client
-  //     .waitUntilWindowLoaded()
-  // .leftClick('#savebutton')
-  // // save filename
-
-  // .leftClick('#loadbutton')
-  // // load the filename you have saved after
-  // .getText('#editor')
-  // // check that the text in editor still match
-  // .then(text => expect(text).to.eq('This is a test.'))
-  // });
+  it("should click the library tree and see the files in the project folder", function() {
+    return this.app.client
+      .waitUntilWindowLoaded()
+      .leftClick("#tree-dir")
+      .getText("#tree")
+      .then(text => expect(text).to.include("main.js"));
+  });
 });
+//  it ("should add line numbers to the text", function(){
+//    return this.app.client
+//     .waitUntilWindowLoaded()
+//     .leftClick('#editor')
+//     .keys('function()')
+//     .leftClick("#syntax-button")
+//     .getText('#editor')
+//     .then(text => expect(text).to.eq())
+//  });
+
+// it("should save text our editor into a file", function(){
+//   return this.app.client
+//     .waitUntilWindowLoaded()
+// .leftClick('#savebutton')
+// // save filename
+
+// .leftClick('#loadbutton')
+// // load the filename you have saved after
+// .getText('#editor')
+// // check that the text in editor still match
+// .then(text => expect(text).to.eq('This is a test.'))
+// });
