@@ -21,36 +21,35 @@ describe("application launch", function() {
     }
   });
 
-  // it("loads a window", function() {
-  //   return this.app.client
-  //     .getWindowCount()
-  //     .then(count => expect(count).to.eq(1));
-  // });
+  it("loads a window", function() {
+    return this.app.client
+      .getWindowCount()
+      .then(count => expect(count).to.eq(1));
+  });
 
-  //
-  //   it("the title shows 'Quark Text Editor'", function() {
-  //     return this.app.client
-  //       .waitUntilWindowLoaded()
-  //       .getTitle()
-  //       .then(text => expect(text).to.eq("Quark Text Editor"));
-  //   });
-  //
-  //   it("should enter and show text", function() {
-  //     return this.app.client
-  //       .waitUntilWindowLoaded()
-  //       .leftClick("#editor")
-  //       .keys("Text editor")
-  //       .getText("#editor")
-  //       .then(text => expect(text).to.eq("Text editor"));
-  //   });
-  //
-  //   it("should click the library tree and see the files in the project folder", function() {
-  //     return this.app.client
-  //       .waitUntilWindowLoaded()
-  //       .leftClick("#tree-dir")
-  //       .getText("#tree")
-  //       .then(text => expect(text).to.include("main.js"));
-  //   });
+  it("the title shows 'Quark Text Editor'", function() {
+    return this.app.client
+      .waitUntilWindowLoaded()
+      .getTitle()
+      .then(text => expect(text).to.eq("Quark Text Editor"));
+  });
+
+  it("should enter and show text", function() {
+    return this.app.client
+      .waitUntilWindowLoaded()
+      .leftClick("#editor")
+      .keys("Text editor")
+      .getText("#editor")
+      .then(text => expect(text).to.eq("Text editor"));
+  });
+
+  it("should click the library tree and see the files in the project folder", function() {
+    return this.app.client
+      .waitUntilWindowLoaded()
+      .leftClick("#tree-dir")
+      .getText("#tree")
+      .then(text => expect(text).to.include("main.js"));
+  });
 
   it("should count the number of characters correctly", function() {
     return this.app.client

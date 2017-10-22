@@ -2,7 +2,7 @@ setInterval(() => {
   characterCount();
   wordCount();
   lineCount();
-}, 100);
+}, 50);
 
 function characterCount() {
   let text = document.getElementById("editor").innerText;
