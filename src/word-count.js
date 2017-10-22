@@ -13,14 +13,14 @@ function characterCount() {
 
 function wordCount() {
   let text = document.getElementById("editor").innerText;
-  let words = text.split(/\S+/g).length;
+  let words = text.split(/\S+/g).length - 1;
   console.log(words);
   document.getElementById("word-counter").innerText = words;
 }
 
 function lineCount() {
   let text = document.getElementById("editor").innerText;
-  let lines = text.split(/\n/).length;
+  let lines = text.split(/\n/).length - 1;
   console.log(lines);
 
   document.getElementById("line-counter").innerText = lines;
