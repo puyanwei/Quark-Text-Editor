@@ -15,11 +15,11 @@ describe("application launch", function() {
     return this.app.start();
   });
 
-  // afterEach(function() {
-  //   if (this.app && this.app.isRunning()) {
-  //     return this.app.stop();
-  //   }
-  // });
+  afterEach(function() {
+    if (this.app && this.app.isRunning()) {
+      return this.app.stop();
+    }
+  });
 
   // it("loads a window", function() {
   //   return this.app.client
@@ -52,12 +52,30 @@ describe("application launch", function() {
   //       .then(text => expect(text).to.include("main.js"));
   //   });
 
-  it("should count the number of words correctly", function() {
+  it("should count the number of characters correctly", function() {
     return this.app.client
       .waitUntilWindowLoaded()
       .leftClick("#editor")
       .keys("the number of characters should be 37")
-      .getText("#editor")
-      .then(text => expect(text.split("").length).to.eq(37));
+      .getText("#character-counter")
+      .then(text => expect(text).to.eq("37"));
+  });
+
+  it("should count the number of words correctly", function() {
+    return this.app.client
+      .waitUntilWindowLoaded()
+      .leftClick("#editor")
+      .keys("the number of words \n should be 7")
+      .getText("#word-counter")
+      .then(text => expect(text).to.eq("7"));
+  });
+
+  it("should count the number of lines correctly", function() {
+    return this.app.client
+      .waitUntilWindowLoaded()
+      .leftClick("#editor")
+      .keys("the number\n of lines\n should\n be 4")
+      .getText("#line-counter")
+      .then(text => expect(text).to.eq("4"));
   });
 });
