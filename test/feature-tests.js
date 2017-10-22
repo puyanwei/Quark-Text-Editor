@@ -15,47 +15,53 @@ describe("application launch", function() {
     return this.app.start();
   });
 
-  afterEach(function() {
-    if (this.app && this.app.isRunning()) {
-      return this.app.stop();
-    }
-  });
+  // afterEach(function() {
+  //   if (this.app && this.app.isRunning()) {
+  //     return this.app.stop();
+  //   }
+  // });
 
   it("loads a window", function() {
-    return this.app.client.getWindowCount().then(function(count) {
-      expect(count).to.eq(1);
-    });
-  });
-
-  it("the title shows 'Quark Text Editor'", function() {
     return this.app.client
-      .waitUntilWindowLoaded()
-      .getTitle()
-      .then(text => expect(text).to.eq("Quark Text Editor"));
+      .getWindowCount()
+      .then(count => expect(count).to.eq(1));
   });
 
-  it("should enter and show text", function() {
+  //
+  //   it("the title shows 'Quark Text Editor'", function() {
+  //     return this.app.client
+  //       .waitUntilWindowLoaded()
+  //       .getTitle()
+  //       .then(text => expect(text).to.eq("Quark Text Editor"));
+  //   });
+  //
+  //   it("should enter and show text", function() {
+  //     return this.app.client
+  //       .waitUntilWindowLoaded()
+  //       .leftClick("#editor")
+  //       .keys("Text editor")
+  //       .getText("#editor")
+  //       .then(text => expect(text).to.eq("Text editor"));
+  //   });
+  //
+  //   it("should click the library tree and see the files in the project folder", function() {
+  //     return this.app.client
+  //       .waitUntilWindowLoaded()
+  //       .leftClick("#tree-dir")
+  //       .getText("#tree")
+  //       .then(text => expect(text).to.include("main.js"));
+  //   });
+
+  it("should count the number of words correctly", function() {
     return this.app.client
       .waitUntilWindowLoaded()
       .leftClick("#editor")
-      .keys("Text editor")
-      .getText("#editor")
-      .then(text => expect(text).to.eq("Text editor"));
-  });
-
-  it("should click the library tree and see the files in the project folder", function() {
-    return this.app.client
-      .waitUntilWindowLoaded()
-      .leftClick("#tree-dir")
-      .getText("#tree")
-      .then(text => expect(text).to.include("main.js"));
+      .keys("the number of characters should be 37");
+    var text = window.getText("#editor");
+    console.log("THIS IS TEXT", text);
+    expect(text.split("").length).to.eq(33);
   });
 });
-
-// it("should count the number of words correctly", function(){
-//
-// })
-
 //  it ("should add line numbers to the text", function(){
 //    return this.app.client
 //     .waitUntilWindowLoaded()
