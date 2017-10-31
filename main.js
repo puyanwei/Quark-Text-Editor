@@ -5,7 +5,7 @@ const fs = require("fs");
 
 let mainWindow;
 
-app.on("ready", function() {
+app.on("ready", () => {
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
 
   let contents = mainWindow.webContents;
@@ -36,12 +36,10 @@ let fileName = "Undefined";
 function openFile() {
   const files = dialog.showOpenDialog(mainWindow, {
     properties: ["openFile"],
-    filters: [
-      {
-        name: "FileNames",
-        extensions: ["md", "txt", "rb", "js", "html", "css"]
-      }
-    ]
+    filters: [{
+      name: "FileNames",
+      extensions: ["md", "txt", "rb", "js", "html", "css"]
+    }]
   });
 
   if (!files) return;
@@ -74,11 +72,9 @@ function saveFile(content) {
   fs.writeFileSync(fileName, content);
 }
 
-const mainMenuTemplate = [
-  {
+const mainMenuTemplate = [{
     label: "File",
-    submenu: [
-      {
+    submenu: [{
         label: "Save",
         accelerator: process.platform == "darwin" ? "Command+S" : "Crtl+S",
         click() {
@@ -87,8 +83,7 @@ const mainMenuTemplate = [
       },
       {
         label: "Save As...?",
-        accelerator:
-          process.platform == "darwin" ? "Shift+Command+S" : "Shift+Crtl+S",
+        accelerator: process.platform == "darwin" ? "Shift+Command+S" : "Shift+Crtl+S",
         click() {
           mainWindow.webContents.send("save-as-file");
         }
@@ -108,8 +103,7 @@ const mainMenuTemplate = [
   },
   {
     label: "Edit",
-    submenu: [
-      {
+    submenu: [{
         label: "Cut it",
         accelerator: process.platform == "darwin" ? "Command+X" : "Crtl+X",
         selector: "cut:"
@@ -138,19 +132,15 @@ const mainMenuTemplate = [
   },
   {
     label: "Duck Memes",
-    submenu: [
-      {
-        label: "Yeah right..."
-      }
-    ]
+    submenu: [{
+      label: "Yeah right..."
+    }]
   },
   {
     label: "Quack?",
-    submenu: [
-      {
-        label: "We just love ducks"
-      }
-    ]
+    submenu: [{
+      label: "We just love ducks"
+    }]
   }
 ];
 
@@ -161,8 +151,7 @@ if (process.platform == "darwin") {
 if (process.env.NODE_ENV !== "production") {
   mainMenuTemplate.push({
     label: "Developer tools",
-    submenu: [
-      {
+    submenu: [{
         label: "Toggle DevTools",
         accelerator: process.platform == "darwin" ? "Command+I" : "Crtl+I", // keyboard short cut
         click(item, focusedWindow) {
