@@ -2,9 +2,7 @@ const treeBtn = document.getElementById("tree-dir");
 const list = document.getElementById("tree");
 const fs = require("fs");
 
-treeBtn.addEventListener("click", treeDir);
-
-function treeDir() {
+let treeDir = () => {
   const folder = "./";
   let tree = "";
 
@@ -15,3 +13,5 @@ function treeDir() {
     list.innerHTML = tree;
   });
 }
+
+treeBtn.addEventListener("click", treeDir);

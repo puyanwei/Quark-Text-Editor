@@ -25,7 +25,6 @@ function loadFile() {
   });
 }
 
-//  save
 function saveAsFile() {
   let content = document.getElementById("editor").innerText;
 
