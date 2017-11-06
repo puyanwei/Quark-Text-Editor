@@ -164,7 +164,7 @@ if (process.env.NODE_ENV !== 'production') {
     submenu: [
       {
         label: 'Toggle DevTools',
-        accelerator: process.platform == 'darwin' ? 'Command+I' : 'Crtl+I', // keyboard short cut
+        accelerator: process.platform == 'darwin' ? 'Command+I' : 'Crtl+I',
         click(item, focusedWindow) {
           focusedWindow.toggleDevTools();
         }
