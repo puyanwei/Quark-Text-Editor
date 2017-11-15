@@ -68,13 +68,4 @@ describe('application launch', function() {
       .getText('#word-counter')
       .then(text => expect(text).to.eq('7'));
   });
-
-  it('should count the number of lines correctly', () => {
-    return this.app.client
-      .waitUntilWindowLoaded()
-      .leftClick('#editor')
-      .keys('the number\n of lines\n should\n be 4')
-      .getText('#line-counter')
-      .then(text => expect(text).to.eq('4'));
-  });
 });

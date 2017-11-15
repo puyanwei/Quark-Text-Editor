@@ -80,7 +80,7 @@ const mainMenuTemplate = [
     submenu: [
       {
         label: 'Save',
-        accelerator: process.platform == 'darwin' ? 'Command+S' : 'Crtl+S',
+        accelerator: process.platform == 'darwin' ? 'Command + S' : 'Ctrl + S',
         click() {
           mainWindow.webContents.send('save-file');
         }
@@ -88,21 +88,23 @@ const mainMenuTemplate = [
       {
         label: 'Save As...?',
         accelerator:
-          process.platform == 'darwin' ? 'Shift+Command+S' : 'Shift+Crtl+S',
+          process.platform == 'darwin'
+            ? 'Shift+Command+S'
+            : ' Shift + Ctrl + S',
         click() {
           mainWindow.webContents.send('save-as-file');
         }
       },
       {
         label: 'Open...',
-        accelerator: process.platform == 'darwin' ? 'Command+O' : 'Crtl+O',
+        accelerator: process.platform == 'darwin' ? 'Command + O' : 'Ctrl + O',
         click() {
           openFile();
         }
       },
       {
         label: 'Rage Quit',
-        accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Crtl+Q'
+        accelerator: process.platform == 'darwin' ? 'Command + Q' : 'Ctrl + Q'
       }
     ]
   },
@@ -111,27 +113,27 @@ const mainMenuTemplate = [
     submenu: [
       {
         label: 'Cut it',
-        accelerator: process.platform == 'darwin' ? 'Command+X' : 'Crtl+X',
+        accelerator: process.platform == 'darwin' ? 'Command + X' : 'Ctrl + X',
         selector: 'cut:'
       },
       {
         label: 'Lazy copying',
-        accelerator: process.platform == 'darwin' ? 'Command+C' : 'Crtl+C',
+        accelerator: process.platform == 'darwin' ? 'Command + C' : 'Ctrl + C',
         selector: 'copy:'
       },
       {
         label: 'Paste',
-        accelerator: process.platform == 'darwin' ? 'Command+V' : 'Crtl+V',
+        accelerator: process.platform == 'darwin' ? 'Command + V' : 'Ctrl + V',
         selector: 'paste:'
       },
       {
         label: 'Undo your mistake',
-        accelerator: process.platform == 'darwin' ? 'Command+Z' : 'Crtl+Z',
+        accelerator: process.platform == 'darwin' ? 'Command + Z' : 'Ctrl + Z',
         selector: 'undo:'
       },
       {
         label: 'Redo what your thought was a mistake',
-        accelerator: process.platform == 'darwin' ? 'Command+Y' : 'Crtl+Y',
+        accelerator: process.platform == 'darwin' ? 'Command + Y' : 'Ctrl + Y',
         selector: 'redo:'
       }
     ]
@@ -164,7 +166,7 @@ if (process.env.NODE_ENV !== 'production') {
     submenu: [
       {
         label: 'Toggle DevTools',
-        accelerator: process.platform == 'darwin' ? 'Command+I' : 'Crtl+I',
+        accelerator: process.platform == 'darwin' ? 'Command + I' : 'Ctrl + I',
         click(item, focusedWindow) {
           focusedWindow.toggleDevTools();
         }
