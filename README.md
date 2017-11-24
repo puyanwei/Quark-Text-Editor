@@ -8,7 +8,7 @@ The aim of this project was to experience and learn the processes of building a 
 
 This was a 2 week final project by [abitravers89](https://github.com/abitravers1989), [david-div](https://www.github.com/david-div),
 [FreddieCodes](https://github.com/freddiecodes) and
-[puyanwei](https://github.com/puyanwei)
+[puyanwei](https://github.com/puyanwei) from 9th-20th October. Note I have done extra work, so commits will be mine after that period.
 
 User Stories for the Minimum Viable Product
 
