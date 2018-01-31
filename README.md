@@ -87,8 +87,7 @@ npm test
 
 We challenged ourselves to maintain a high quality standard of coding practices, as well as Agile methodologies during this project.
 
-* All feature and unit tests passing, good coverage.
-* Consistent variable naming and linting.
+* Attempt at good testing coverage.
 * Small commits and good descriptions.
 * Never working off master branch, always using pull requests.
 * Good planning and organisation throughout, using our [Trello](https://trello.com/b/mFZ3IP8U/build-our-own-program-from-scratch) board.
