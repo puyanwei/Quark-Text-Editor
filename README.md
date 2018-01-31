@@ -22,7 +22,7 @@ I would like to be able to add some text.
 
 User Stories Features
 
-````
+```
 As a user of Quark Editor,
 I would like to write text and have it automatically formatted into code live.
 
@@ -43,46 +43,53 @@ I would like to see character, word and line counts shown updated live as I type
 
 As a user of Quark Editor,
 I would like to see my root folders be displayed when pressing a button.
-`````
+```
 
 ## Tech Stack
-- Electron
-- Spectron
-- Node JS
-- Chromium
-- HTML
-- CSS
-- Bootstrap
-- Prism JS
+
+* Electron
+* Spectron
+* Node JS
+* Chromium
+* HTML
+* CSS
+* Bootstrap
+* Prism JS
 
 ## Installation
-Clone this repository by typing in `git clone git@github.com:puyanwei/Quark-Text-editor.git`
 
-Go to the root folder of the project and `npm install` to install all the relevant dependancies.
+```
+git clone git@github.com:puyanwei/Quark-Text-editor.git
+npm install
+cd Quark-Text-editor
+npm run package-mac
+cd release-builds/Quark-darwin-x64/
+open Quark.app
+```
 
-Create the app by typing the following: `npm run package-mac`
+For testing go to the root folder
 
-The app will then be located in: release-builds/Quark-darwin-x64/
-
-Double click the Quark Editor Icon in the root folder to open.
-
-For testing type in `npm test` in the root folder.
+```
+npm test
+```
 
 ## Features
-- Opens the app using the icon.
-- Text can be written and saved with a coding extension name.
-- Syntax updates on the fly once coding language is specified after saving.
-- The library tree button shows the current directory and its files.
-- The toolbar shows the name of the current file edited, if it has been loaded or saved.
-- The footer shows the character, word and line count live as you type.
-- Ability to copy and paste, and use keyboard shortcuts.
+
+* Opens the app using the icon.
+* Text can be written and saved with a coding extension name.
+* Syntax updates on the fly once coding language is specified after saving.
+* The library tree button shows the current directory and its files.
+* The toolbar shows the name of the current file edited, if it has been loaded or saved.
+* The footer shows the character, word and line count live as you type.
+* Ability to copy and paste, and use keyboard shortcuts.
 
 ## Quality Control
 
 We challenged ourselves to maintain a high quality standard of coding practices, as well as Agile methodologies during this project.
-- All feature and unit tests passing, good coverage.
-- Consistent variable naming and linting.
-- Small commits and good descriptions.
-- Never working off master branch, always using pull requests.
-- Good planning and organisation throughout, using our [Trello](https://trello.com/b/mFZ3IP8U/build-our-own-program-from-scratch) board.
-- Stand ups in the mornings, retrospectives in the evenings, XP values.
+
+* All feature and unit tests passing, good coverage.
+* Consistent variable naming and linting.
+* Small commits and good descriptions.
+* Never working off master branch, always using pull requests.
+* Good planning and organisation throughout, using our [Trello](https://trello.com/b/mFZ3IP8U/build-our-own-program-from-scratch) board.
+* Stand ups in the mornings, retrospectives in the evenings, XP values.
