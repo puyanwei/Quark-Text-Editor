@@ -6,6 +6,10 @@ const fs = require("fs");
 let mainWindow;
 
 app.on("ready", () => {
+  createWindow();
+});
+
+function createWindow() {
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
 
   let contents = mainWindow.webContents;
@@ -25,7 +29,7 @@ app.on("ready", () => {
   const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
 
   Menu.setApplicationMenu(mainMenu);
-});
+}
 
 let fileName = "Undefined";
 
