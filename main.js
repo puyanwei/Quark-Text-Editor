@@ -56,9 +56,6 @@ function saveAsFile(content) {
   const fileSave = dialog.showSaveDialog(mainWindow, {
     title: "Save HTML Output",
     defaultPath: app.getPath("documents")
-    // filters: [
-    //   // { name: 'HTML Files', extensions: ['rb'] }
-    // ]
   });
 
   if (!fileSave) return;
@@ -172,7 +169,7 @@ if (process.env.NODE_ENV !== "production") {
         }
       },
       {
-        role: "reload" // adding reload option in the dev tools menu
+        role: "reload"
       }
     ]
   });
