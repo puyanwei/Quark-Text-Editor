@@ -6,9 +6,9 @@ The aim of this project was to experience and learn the processes of building a 
 
 ![Alt Text](https://github.com/puyanwei/Quark-Text-editor/blob/master/assets/demo.gif)
 
-This was a 2 week final project by [abitravers89](https://github.com/abitravers1989), [david-div](https://www.github.com/david-div),
-[FreddieCodes](https://github.com/freddiecodes) and
-[puyanwei](https://github.com/puyanwei) from 9th-20th October. Note I have done extra work, so commits will be mine after that period.
+This was a 2 week final project by [Abi Travers](https://github.com/abitravers1989), [David Divilly](https://www.github.com/david-div),
+[Freddy Ofori](https://github.com/freddiecodes) and
+[Puyan Wei](https://github.com/puyanwei) from 9th-20th October. Note I have done extra work, so commits will be mine after that period.
 
 ### User Stories for the Minimum Viable Product
 
