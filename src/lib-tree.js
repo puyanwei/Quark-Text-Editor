@@ -12,6 +12,6 @@ let treeDir = () => {
     });
     list.innerHTML = tree;
   });
-}
+};
 
 treeBtn.addEventListener("click", treeDir);
