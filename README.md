@@ -10,6 +10,23 @@ This was a 2 week final project by [Abi Travers](https://github.com/abitravers19
 [Freddy Ofori](https://github.com/freddiecodes) and
 [Puyan Wei](https://github.com/puyanwei) from 9th-20th October. Note I have done extra work, so commits will be mine after that period.
 
+### Quick Start Installation
+
+```
+git clone git@github.com:puyanwei/Quark-Text-editor.git
+cd Quark-Text-editor
+npm install
+npm run package-mac
+cd release-builds/Quark-darwin-x64/
+open Quark.app
+```
+
+For testing go to the root folder
+
+```
+npm test
+```
+
 ### User Stories for the Minimum Viable Product
 
 When we started the project we didn't really know where to start. So we looked into what Atom was built with and discovered Electron. At that point we decided at Electron would be a good tech to use and learn. Once we got to grips with Electron and setup the environment, we decided upon a MVP User Story as our first goal.
@@ -59,23 +76,6 @@ I would like to see my root folders be displayed in a tree format when pressing 
 * CSS
 * Bootstrap
 * Prism JS
-
-### Installation
-
-```
-git clone git@github.com:puyanwei/Quark-Text-editor.git
-npm install
-cd Quark-Text-editor
-npm run package-mac
-cd release-builds/Quark-darwin-x64/
-open Quark.app
-```
-
-For testing go to the root folder
-
-```
-npm test
-```
 
 ### Features
 
