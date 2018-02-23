@@ -12,6 +12,8 @@ This was a 2 week final project by [Abi Travers](https://github.com/abitravers19
 
 ### Quick Start Installation
 
+Note that you will need to have [Node.js](https://nodejs.org/en/) installed on your computer first.
+
 ```
 git clone git@github.com:puyanwei/Quark-Text-editor.git
 cd Quark-Text-editor
